@@ -28,10 +28,10 @@ export default function RootLayout({
       lang="id"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body className="min-h-screen flex text-dark font-sans bg-transparent">
+      <body className="min-h-screen flex flex-col md:flex-row text-dark font-sans bg-transparent">
         <Sidebar />
-        <div className="flex-1 flex flex-col h-screen overflow-y-auto">
-          <main className="flex-grow p-6 md:p-8 max-w-6xl mx-auto w-full">
+        <div className="flex-1 flex flex-col h-[calc(100vh-4rem)] md:h-screen overflow-y-auto mt-16 md:mt-0 w-full">
+          <main className="flex-grow p-4 sm:p-6 md:p-8 max-w-6xl mx-auto w-full">
             {children}
           </main>
         </div>
