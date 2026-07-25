@@ -69,12 +69,14 @@ export function Accordion({ items, allowMultiple = false }: AccordionProps) {
 
             {/* Collapsible Panel */}
             <div
-              className={`transition-all duration-300 ease-in-out overflow-hidden
-                ${isOpen ? "max-h-[500px] border-t border-dark/5" : "max-h-0"}
+              className={`grid transition-all duration-300 ease-in-out
+                ${isOpen ? "grid-rows-[1fr] border-t border-dark/5" : "grid-rows-[0fr]"}
               `}
             >
-              <div className="p-6 text-sm md:text-base leading-relaxed text-dark/70 bg-[#FAF6EE]/20">
-                {item.content}
+              <div className="overflow-hidden">
+                <div className="p-6 text-sm md:text-base leading-relaxed text-dark/70 bg-[#FAF6EE]/20">
+                  {item.content}
+                </div>
               </div>
             </div>
           </div>

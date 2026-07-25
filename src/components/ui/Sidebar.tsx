@@ -111,18 +111,7 @@ export function Sidebar() {
           </nav>
         </div>
 
-        {/* User Profile / Tamu */}
-        <div className="mt-auto pt-6 border-t border-gray-100">
-          <div className="flex items-center gap-3 px-2">
-            <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 border border-gray-200 shrink-0">
-              <User className="w-5 h-5" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold text-dark">Tamu</span>
-              <span className="text-xs text-gray-400">Mode Tamu</span>
-            </div>
-          </div>
-        </div>
+
       </aside>
     </>
   );
