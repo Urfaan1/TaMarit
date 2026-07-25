@@ -237,3 +237,45 @@ export function OceanWave({ className = "" }: { className?: string }) {
     </div>
   );
 }
+
+/**
+ * Pucok Reubong (Bamboo Shoot Motif)
+ * A traditional Acehnese motif shaped like a triangle, representing growth and resilience.
+ */
+export function PucokReubong({ className = "", size = 48, strokeWidth = 2 }: MotifProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`text-current ${className}`}
+      aria-hidden="true"
+    >
+      <path
+        d="M50 10 L90 90 H10 Z"
+        stroke="currentColor"
+        strokeWidth={strokeWidth}
+        strokeLinejoin="round"
+      />
+      <path
+        d="M50 30 L75 80 H25 Z"
+        stroke="currentColor"
+        strokeWidth={strokeWidth}
+        strokeLinejoin="round"
+        fill="currentColor"
+        fillOpacity="0.1"
+      />
+      <path
+        d="M50 50 L60 70 H40 Z"
+        stroke="currentColor"
+        strokeWidth={strokeWidth}
+        strokeLinejoin="round"
+        fill="currentColor"
+        fillOpacity="0.2"
+      />
+    </svg>
+  );
+}
+

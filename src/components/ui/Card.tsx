@@ -1,10 +1,10 @@
 import React from "react";
-import { PintoAceh, BaiturrahmanArch } from "./Motifs";
+import { PintoAceh, BaiturrahmanArch, PucokReubong } from "./Motifs";
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   hoverable?: boolean;
   withMotif?: boolean;
-  motifVariant?: "pinto" | "arch";
+  motifVariant?: "pinto" | "arch" | "pucok-reubong";
   headerAccent?: "primary" | "gold" | "green" | "none";
 }
 
@@ -38,8 +38,10 @@ export function Card({
         <div className="absolute -right-8 -bottom-8 text-dark/[0.03] group-hover:text-primary/[0.04] transition-colors duration-500 pointer-events-none select-none">
           {motifVariant === "pinto" ? (
             <PintoAceh size={140} strokeWidth={1} />
-          ) : (
+          ) : motifVariant === "arch" ? (
             <BaiturrahmanArch size={140} strokeWidth={1} />
+          ) : (
+            <PucokReubong size={140} strokeWidth={1} />
           )}
         </div>
       )}
