@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { VolumeX, Volume1, Music, SkipForward } from 'lucide-react';
+import { VolumeX, Volume1, Music, SkipForward, SlidersHorizontal } from 'lucide-react';
 
 const playlist = [
   "/audio/lagu-aceh-1.mp3",
@@ -92,10 +92,10 @@ export function AudioPlayer() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Slider Volume & Skip (Membuka ke samping saat di-hover) */}
+        {/* Slider Volume & Skip (Membuka ke samping saat di-hover dan saat musik menyala) */}
         <div 
           className={`overflow-hidden transition-all duration-300 ease-in-out bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-dark/10 flex items-center
-            ${isHovered ? "w-48 px-3 opacity-100 h-14" : "w-0 opacity-0 h-14 border-transparent shadow-none px-0"}`}
+            ${isHovered && isPlaying ? "w-48 px-3 opacity-100 h-14" : "w-0 opacity-0 h-14 border-transparent shadow-none px-0"}`}
         >
           <div className="flex items-center gap-2 w-full min-w-[140px]">
             {volume === 0 ? <VolumeX className="w-4 h-4 text-dark/50 flex-shrink-0" /> : <Volume1 className="w-4 h-4 text-dark/50 flex-shrink-0" />}
@@ -118,6 +118,17 @@ export function AudioPlayer() {
             </button>
           </div>
         </div>
+
+        {/* Tombol Expand untuk Mobile (hanya muncul saat play) */}
+        {isPlaying && (
+          <button
+            onClick={() => setIsHovered(!isHovered)}
+            className={`p-2.5 rounded-full shadow-md bg-white border border-dark/5 text-dark/60 md:hidden transition-all duration-300 hover:bg-gray-50 flex-shrink-0`}
+            title="Atur Volume"
+          >
+            <SlidersHorizontal className="w-4 h-4" />
+          </button>
+        )}
 
         {/* Tombol Play/Pause Utama */}
         <button
