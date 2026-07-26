@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
-import { BookOpen, Compass, Book, Landmark } from "lucide-react";
+import { BookOpen, Compass, Book, Landmark, Activity } from "lucide-react";
 
 export default function SastraBudayaPage() {
   const categories = [
@@ -35,6 +35,13 @@ export default function SastraBudayaPage() {
       href: "/sastra-budaya/adat-aceh",
       icon: <Landmark className="w-8 h-8 text-primary" />,
       badgeVariant: "primary" as const,
+    },
+    {
+      title: "Tarian Aceh",
+      description: "Kenali dan pelajari ragam tarian tradisional Aceh yang kaya makna.",
+      href: "/sastra-budaya/tarian-aceh",
+      icon: <Activity className="w-8 h-8 text-accent-green" />,
+      badgeVariant: "green" as const,
     },
   ];
 

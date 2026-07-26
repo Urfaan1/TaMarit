@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/ui/Sidebar";
+import { AudioPlayer } from "@/components/ui/AudioPlayer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,6 +36,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
+        <AudioPlayer />
       </body>
     </html>
   );

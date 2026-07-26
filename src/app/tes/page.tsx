@@ -4,12 +4,11 @@ import React, { useState } from "react";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { Dropdown, DropdownItem } from "@/components/ui/Dropdown";
 import { Progress } from "@/components/ui/Progress";
 import { Modal } from "@/components/ui/Modal";
 import { Badge } from "@/components/ui/Badge";
-import { PintoAceh, BungongJeumpa } from "@/components/ui/Motifs";
-import { GraduationCap, BookOpen, Anchor, RotateCcw, CheckCircle, AlertTriangle } from "lucide-react";
+import { BungongJeumpa } from "@/components/ui/Motifs";
+import { RotateCcw } from "lucide-react";
 
 interface Question {
   id: number;
@@ -18,133 +17,137 @@ interface Question {
   correctAnswer: number;
 }
 
-const quizData: Record<string, { title: string; desc: string; questions: Question[] }> = {
-  aneuk: {
-    title: "Aneuk (Dasar)",
-    desc: "Tes kosakata dasar, salam harian, dan tata bahasa sederhana bahasa Aceh.",
-    questions: [
-      {
-        id: 1,
-        text: 'Apa arti kata "Lôn" dalam bahasa Aceh sehari-hari?',
-        options: ["Kamu", "Saya (Sopan)", "Dia", "Mereka"],
-        correctAnswer: 1,
-      },
-      {
-        id: 2,
-        text: 'Bagaimana cara menanyakan kabar ("Apa kabar?") dalam bahasa Aceh?',
-        options: ["Pajan gata jak?", "Peue haba?", "Peue na bu?", "Konda kundi?"],
-        correctAnswer: 1,
-      },
-      {
-        id: 3,
-        text: 'Apa bahasa Aceh untuk kata dasar kerja "Makan"?',
-        options: ["Jak", "Eh", "Pajoh", "Jih"],
-        correctAnswer: 2,
-      },
-      {
-        id: 4,
-        text: "Apa sebutan untuk rumah panggung tradisional adat Aceh?",
-        options: ["Rumoh Aceh", "Rumah Gadang", "Krong Pade", "Jengki"],
-        correctAnswer: 0,
-      },
-      {
-        id: 5,
-        text: 'Apa makna kata ganti orang kedua "Gata"?',
-        options: ["Saya", "Kamu (Sopan/Setara)", "Mereka", "Kakek"],
-        correctAnswer: 1,
-      },
-    ],
+const ukbaQuestions: Question[] = [
+  {
+    id: 1,
+    text: "Kata ganti orang pertama tunggal yang paling sopan (halus) dalam bahasa Aceh adalah...",
+    options: ["Ulôn", "Keé", "Gata", "Jih"],
+    correctAnswer: 0,
   },
-  remaja: {
-    title: "Remaja (Menengah)",
-    desc: "Tes kearifan sastra lisan, ungkapan Maja, dan sejarah perhiasan tradisional.",
-    questions: [
-      {
-        id: 1,
-        text: '"Hadih Maja" merupakan warisan kebudayaan Aceh berbentuk sastra...',
-        options: ["Novel sejarah", "Tarian upacara", "Pepatah/peribahasa", "Lagu perjuangan"],
-        correctAnswer: 2,
-      },
-      {
-        id: 2,
-        text: 'Motif hiasan gerbang pintu keraton "Pinto Aceh" diciptakan pertama kali pada tahun...',
-        options: ["1935", "1910", "1955", "1980"],
-        correctAnswer: 0,
-      },
-      {
-        id: 3,
-        text: 'Apa peranan "Pawang" dalam tatanan maritim tradisional masyarakat nelayan Aceh?',
-        options: ["Pemimpin ritual adat gunung", "Pemimpin kapal pelayaran & pembaca bintang", "Penjaga lumbung padi", "Pembuat kain tenun"],
-        correctAnswer: 1,
-      },
-      {
-        id: 4,
-        text: "Tari heroik delapan pria yang menepuk dada dan pinggul secara berirama cepat adalah tari...",
-        options: ["Tari Saman", "Tari Seudati", "Tari Piring", "Tari Ranup Lampuan"],
-        correctAnswer: 1,
-      },
-      {
-        id: 5,
-        text: 'Kata sandang kehormatan "Po" di depan nama tokoh sejarah melambangkan...',
-        options: ["Rakyat jelata", "Musuh kesultanan", "Penghormatan tinggi", "Nama marga"],
-        correctAnswer: 2,
-      },
-    ],
+  {
+    id: 2,
+    text: 'Kata tanya yang tepat untuk menanyakan tempat ("Di mana") dalam bahasa Aceh adalah...',
+    options: ["Peue", "Pajan", "Pat", "Soe"],
+    correctAnswer: 2,
   },
-  tokoh: {
-    title: "Tokoh (Mahir)",
-    desc: "Uji pemahaman tentang sastra tingkat tinggi, teks Hikayat klasik, dan hukum adat kebudayaan.",
-    questions: [
-      {
-        id: 1,
-        text: "Karya sastra heroik kepahlawanan yang dibacakan berirama untuk memicu semangat juang rakyat Aceh melawan penjajah adalah...",
-        options: ["Hikayat Malem Diwa", "Hikayat Prang Sabi", "Hadih Maja", "Kanun Putroe Phang"],
-        correctAnswer: 1,
-      },
-      {
-        id: 2,
-        text: "Lembaga peradilan adat kelautan yang mengatur pembagian hasil laut dan penyelesaian konflik nelayan dipimpin oleh...",
-        options: ["Panglima Laôt", "Bentara Reusam", "Keuchik", "Imum Mukim"],
-        correctAnswer: 0,
-      },
-      {
-        id: 3,
-        text: "Benda cagar budaya berupa tempat penyimpanan padi berukuran besar di samping Rumoh Aceh dinamakan...",
-        options: ["Jengki", "Krong Padé", "Reudeup", "Pinto Khop"],
-        correctAnswer: 1,
-      },
-      {
-        id: 4,
-        text: "Arsitektur Rumoh Aceh dibangun menghadap ke arah utara-selatan dengan tujuan utama...",
-        options: ["Menghadap ke arah hembusan angin laut", "Mempermudah penentuan arah kiblat & mengurangi tekanan angin barat-timur", "Mengikuti pola jalan kerajaan", "Menghindari pohon besar"],
-        correctAnswer: 1,
-      },
-      {
-        id: 5,
-        text: 'Kata "Peudeung" yang disematkan dalam ungkapan adat Aceh melambangkan simbol...',
-        options: ["Kelembutan bersikap", "Kedaulatan hukum dan keberanian menjaga tanah air", "Kemakmuran hasil panen", "Pernikahan agung"],
-        correctAnswer: 1,
-      },
-    ],
+  {
+    id: 3,
+    text: 'Apa bahasa Aceh dari kata kerja dasar "Makan"?',
+    options: ["Pajôh", "Jak", "Eh", "Duk"],
+    correctAnswer: 0,
   },
-};
+  {
+    id: 4,
+    text: 'Sinonim dari kata "Sabé" dalam bahasa Aceh adalah...',
+    options: ["Kadang-kadang", "Selalu/Terus-menerus", "Tidak pernah", "Jarang"],
+    correctAnswer: 1,
+  },
+  {
+    id: 5,
+    text: 'Lawan kata (antonim) dari "Rayek" (besar) adalah...',
+    options: ["Panyang", "Cut/Ubeut", "Manyang", "Golom"],
+    correctAnswer: 1,
+  },
+  {
+    id: 6,
+    text: 'Kata yang tepat untuk menyatakan keterangan waktu "Besok" adalah...',
+    options: ["Bungoh", "Singoh", "Baroe", "Uroe nyoe"],
+    correctAnswer: 1,
+  },
+  {
+    id: 7,
+    text: 'Apa terjemahan bahasa Indonesia dari kalimat: "Lôn meuneuk jak u keudè"?',
+    options: ["Saya sedang di pasar", "Saya ingin pergi ke pasar", "Saya baru pulang dari pasar", "Saya tidak suka ke pasar"],
+    correctAnswer: 1,
+  },
+  {
+    id: 8,
+    text: "Sebutan untuk kakak perempuan kandung atau yang dituakan dalam kekerabatan Aceh adalah...",
+    options: ["Cut Bang", "Adoe", "Cut Kak / Po Cut", "Nyak"],
+    correctAnswer: 2,
+  },
+  {
+    id: 9,
+    text: 'Kata "Mata" dalam bahasa Aceh berarti sama, lalu apa sebutan untuk "Telinga"?',
+    options: ["Geulinyueng", "Hidung", "Jaroe", "Gaki"],
+    correctAnswer: 0,
+  },
+  {
+    id: 10,
+    text: 'Kata untuk menyebut bilangan "Delapan" dalam bahasa Aceh disebut...',
+    options: ["Nam", "Tujôh", "Lapan", "Sikureueng"],
+    correctAnswer: 2,
+  },
+  {
+    id: 11,
+    text: 'Untuk menyatakan penolakan "Tidak mau" secara tegas dalam bahasa Aceh, kata yang tepat adalah...',
+    options: ["Hana", "H'an / H'an tém", "Bèk", "Trok"],
+    correctAnswer: 1,
+  },
+  {
+    id: 12,
+    text: 'Penulisan dan penyebutan kata "Air" dalam bahasa Aceh adalah...',
+    options: ["Ie", "Aie", "Iye", "Ee"],
+    correctAnswer: 0,
+  },
+  {
+    id: 13,
+    text: 'Kata "Jangan" dalam membentuk kalimat larangan bahasa Aceh menggunakan kata...',
+    options: ["Han", "Bèk", "Hana", "Kon"],
+    correctAnswer: 1,
+  },
+  {
+    id: 14,
+    text: 'Makna yang tepat untuk sapaan "Peue haba gata uroe nyoe?" adalah...',
+    options: ["Apa kamu sakit hari ini?", "Apa kabar kamu hari ini?", "Ke mana kamu pergi hari ini?", "Siapa nama kamu?"],
+    correctAnswer: 1,
+  },
+  {
+    id: 15,
+    text: 'Warna "Merah" dalam bahasa Aceh disebut...',
+    options: ["Mirah", "Itam", "Putéh", "Kuning"],
+    correctAnswer: 0,
+  },
+  {
+    id: 16,
+    text: 'Kata sifat "Mangat" paling lazim digunakan untuk mendeskripsikan...',
+    options: ["Rasa makanan yang lezat", "Pakaian yang indah", "Cuaca yang panas", "Orang yang baik"],
+    correctAnswer: 0,
+  },
+  {
+    id: 17,
+    text: 'Kata ganti penunjuk "Itu" (agak jauh) dalam bahasa Aceh adalah...',
+    options: ["Nyoe", "Nyan", "Jéh", "Sinoe"],
+    correctAnswer: 1,
+  },
+  {
+    id: 18,
+    text: '"Buku nyan ka lôn baca". Penanda "ka" pada kalimat ini menunjukkan...',
+    options: ["Pekerjaan sedang dilakukan (sedang)", "Pekerjaan sudah selesai dilakukan (sudah)", "Pekerjaan belum dilakukan (belum)", "Pekerjaan tidak bisa dilakukan (tidak)"],
+    correctAnswer: 1,
+  },
+  {
+    id: 19,
+    text: 'Kata "Manok" dalam bahasa Aceh merujuk pada hewan...',
+    options: ["Bebek", "Kambing", "Ayam", "Burung"],
+    correctAnswer: 2,
+  },
+  {
+    id: 20,
+    text: 'Kata hubung "Dan" dalam percakapan bahasa Aceh sering disingkat/disebut...',
+    options: ["Ngôn", "Atawa", "Tapi", "Sebab"],
+    correctAnswer: 0,
+  },
+];
 
 export default function TesPage() {
-  const [level, setLevel] = useState("aneuk");
   const [quizStarted, setQuizStarted] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [showResultModal, setShowResultModal] = useState(false);
   const [score, setScore] = useState(0);
 
-  const levelItems: DropdownItem[] = [
-    { value: "aneuk", label: "Aneuk (Dasar)", icon: <GraduationCap className="w-4 h-4" /> },
-    { value: "remaja", label: "Remaja (Menengah)", icon: <BookOpen className="w-4 h-4" /> },
-    { value: "tokoh", label: "Tokoh (Mahir)", icon: <Anchor className="w-4 h-4" /> },
-  ];
-
-  const currentQuiz = quizData[level];
-  const totalQuestions = currentQuiz.questions.length;
+  const totalQuestions = ukbaQuestions.length;
   const progressVal = quizStarted ? Math.round(((currentIdx + 1) / totalQuestions) * 100) : 0;
 
   const handleStart = () => {
@@ -164,9 +167,8 @@ export default function TesPage() {
     if (currentIdx < totalQuestions - 1) {
       setCurrentIdx(currentIdx + 1);
     } else {
-      // Calculate score
       let correctCount = 0;
-      currentQuiz.questions.forEach((q, idx) => {
+      ukbaQuestions.forEach((q, idx) => {
         if (answers[idx] === q.correctAnswer) {
           correctCount++;
         }
@@ -191,10 +193,10 @@ export default function TesPage() {
   };
 
   const getBadgeName = () => {
-    if (score === 100) return "Teuku / Cut Nyak (Sempurna)";
-    if (score >= 80) return "Pembelajar Bijak";
-    if (score >= 60) return "Rakan Pemula";
-    return "Tetap Semangat";
+    if (score >= 90) return "Sangat Mahir (Teuku/Cut Nyak)";
+    if (score >= 70) return "Mahir";
+    if (score >= 50) return "Semenjana (Cukup)";
+    return "Terbatas (Pemula)";
   };
 
   return (
@@ -202,8 +204,8 @@ export default function TesPage() {
       {/* Visual Header */}
       <Section
         background="cream"
-        title="Tes Kemahiran Bahasa & Budaya"
-        subtitle="Uji pemahaman Anda tentang warisan tradisi, sastra lisan, dan kosa kata bahasa Aceh secara bertahap."
+        title="Uji Kemahiran Berbahasa Aceh (UKBA)"
+        subtitle="Evaluasi kemampuan tata bahasa, kosakata, dan pemahaman kalimat bahasa Aceh secara menyeluruh."
         showDivider
         centerTitle
         className="pt-12 pb-6"
@@ -214,29 +216,14 @@ export default function TesPage() {
           /* Selection Screen */
           <Card hoverable={false} withMotif motifVariant="pinto" headerAccent="primary" className="p-8 md:p-10">
             <h3 className="font-serif text-2xl font-bold text-dark mb-4 text-center">
-              Pilih Tingkat Kemahiran Anda
+              Mulai Ujian Kemahiran
             </h3>
-            <p className="text-sm text-dark/60 text-center mb-8 max-w-md mx-auto">
-              Tiap tingkatan memiliki 5 pertanyaan pilihan ganda terstruktur untuk mengevaluasi kompetensi Anda.
+            <p className="text-sm text-dark/70 text-center mb-8 max-w-md mx-auto leading-relaxed">
+              Tes ini dirancang menyerupai format UKBI yang khusus menguji kebahasaan Aceh secara umum. Terdapat 20 pertanyaan pilihan ganda terkait ejaan, kosakata, dan tata bahasa. Hasil evaluasi akan ditampilkan setelah Anda menyelesaikan seluruh pertanyaan.
             </p>
 
             <div className="flex flex-col items-center gap-6">
-              <div className="flex flex-col gap-2 w-64">
-                <span className="text-xs font-bold text-dark/50 pl-1 uppercase tracking-wider">Tingkatan</span>
-                <Dropdown items={levelItems} selectedValue={level} onChange={(val) => setLevel(val)} />
-              </div>
-
-              {/* Selected Level Summary Card */}
-              <div className="w-full bg-[#FAF6EE] p-5 rounded-aceh border border-dark/5 text-center max-w-md mt-2">
-                <Badge variant="gold" className="mb-2">
-                  {currentQuiz.title}
-                </Badge>
-                <p className="text-sm text-dark/75 leading-relaxed">
-                  {currentQuiz.desc}
-                </p>
-              </div>
-
-              <Button variant="primary" size="lg" className="w-64 mt-4" onClick={handleStart}>
+              <Button variant="primary" size="lg" className="w-64" onClick={handleStart}>
                 Mulai Ujian
               </Button>
             </div>
@@ -248,26 +235,26 @@ export default function TesPage() {
               {/* Quiz Header Info */}
               <div className="flex justify-between items-center mb-6">
                 <Badge variant="primary">
-                  {currentQuiz.title}
+                  Uji Kemahiran
                 </Badge>
                 <span className="text-sm font-semibold text-dark/40 font-mono">
                   Pertanyaan {currentIdx + 1} dari {totalQuestions}
                 </span>
               </div>
 
-              {/* Maritime Progress Bar */}
+              {/* Progress Bar */}
               <div className="mb-8">
                 <Progress value={progressVal} variant="green" />
               </div>
 
               {/* Question Text */}
               <h4 className="text-lg md:text-xl font-serif font-bold text-dark mb-6 leading-relaxed">
-                {currentQuiz.questions[currentIdx].text}
+                {ukbaQuestions[currentIdx].text}
               </h4>
 
               {/* Options list */}
               <div className="flex flex-col gap-3.5 mb-8">
-                {currentQuiz.questions[currentIdx].options.map((option, optIdx) => {
+                {ukbaQuestions[currentIdx].options.map((option, optIdx) => {
                   const isSelected = answers[currentIdx] === optIdx;
                   return (
                     <button
@@ -306,7 +293,7 @@ export default function TesPage() {
                   onClick={handleNext}
                   disabled={answers[currentIdx] === undefined}
                 >
-                  {currentIdx === totalQuestions - 1 ? "Selesaikan Tes" : "Selanjutnya"}
+                  {currentIdx === totalQuestions - 1 ? "Selesaikan Ujian" : "Selanjutnya"}
                 </Button>
               </div>
             </Card>
@@ -316,7 +303,7 @@ export default function TesPage() {
                 onClick={handleReset}
                 className="flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
               >
-                <RotateCcw className="w-3.5 h-3.5" /> Ganti Level / Reset
+                <RotateCcw className="w-3.5 h-3.5" /> Batal dan Reset
               </button>
             </div>
           </div>
@@ -335,22 +322,24 @@ export default function TesPage() {
           </div>
 
           <h4 className="text-2xl font-serif font-bold text-dark mt-2">
-            Skor Ujian: {score}/100
+            Skor Ujian: {score} / 100
           </h4>
 
           <div className="flex flex-col gap-1 items-center">
             <span className="text-xs text-dark/40 font-bold uppercase tracking-wider">Predikat</span>
-            <Badge variant={score >= 60 ? "green" : "primary"} size="md">
+            <Badge variant={score >= 70 ? "green" : "primary"} size="md">
               {getBadgeName()}
             </Badge>
           </div>
 
           <p className="text-sm text-dark/70 leading-relaxed max-w-sm my-2">
-            {score === 100
-              ? "Luar biasa! Pemahaman Anda tentang bahasa dan tata budaya Aceh sangat mengagumkan. Anda layak menyandang predikat tokoh!"
-              : score >= 60
-              ? "Kerja bagus! Anda memiliki pemahaman dasar yang kuat. Teruskan latihan untuk menguasai sastra lisan tingkat lanjut."
-              : "Jangan berkecil hati. Mari buka kembali modul Latihan dan baca khazanah budaya di halaman Sastra untuk belajar lebih lanjut!"}
+            {score >= 90
+              ? "Luar biasa! Penguasaan bahasa Aceh Anda berada di tingkat sangat mahir dan sempurna. Pertahankan kemampuan Anda!"
+              : score >= 70
+              ? "Bagus sekali! Anda memiliki kemampuan bahasa Aceh yang mumpuni. Teruskan penggunaan bahasa ini dalam kehidupan sehari-hari."
+              : score >= 50
+              ? "Cukup baik. Pemahaman kebahasaan Anda memadai, tetapi masih banyak kosakata dan struktur kalimat yang perlu dipelajari lebih lanjut."
+              : "Tetap semangat! Mari baca kembali khazanah kosakata dan tata bahasa Aceh untuk meningkatkan kemahiran Anda."}
           </p>
 
           <div className="flex gap-3 w-full mt-4">
@@ -358,7 +347,7 @@ export default function TesPage() {
               Kembali
             </Button>
             <Button variant="primary" className="flex-1" onClick={handleStart}>
-              Ulangi Tes
+              Ulangi Ujian
             </Button>
           </div>
         </div>

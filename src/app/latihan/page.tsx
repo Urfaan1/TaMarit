@@ -31,12 +31,6 @@ export default function LatihanPage() {
       description: "Pelajari cara melafalkan kata-kata bahasa Aceh dengan intonasi yang tepat.",
       icon: <Volume2 className="w-6 h-6 text-primary" />,
       href: "/latihan/pengucapan"
-    },
-    {
-      title: "Tarian Aceh",
-      description: "Kenali dan pelajari ragam tarian tradisional Aceh yang kaya makna.",
-      icon: <Activity className="w-6 h-6 text-primary" />,
-      href: "/latihan/tarian-aceh"
     }
   ];
 
