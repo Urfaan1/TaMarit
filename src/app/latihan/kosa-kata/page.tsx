@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Search } from "lucide-react";
 
-const vocabularyData = [
+export const vocabularyData = [
   {
     category: "Lapangan",
     words: [

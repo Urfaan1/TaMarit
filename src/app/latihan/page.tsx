@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
-import { Mic, Headphones, BookA, Volume2, Activity } from "lucide-react";
+import { Mic, Headphones, BookA, Volume2, Activity, Keyboard } from "lucide-react";
 
 export default function LatihanPage() {
   const categories = [
@@ -31,6 +31,12 @@ export default function LatihanPage() {
       description: "Pelajari cara melafalkan kata-kata bahasa Aceh dengan intonasi yang tepat.",
       icon: <Volume2 className="w-6 h-6 text-primary" />,
       href: "/latihan/pengucapan"
+    },
+    {
+      title: "Menulis",
+      description: "Latih ketangkasan dan akurasi mengeja serta mengetik kata dalam bahasa Aceh.",
+      icon: <Keyboard className="w-6 h-6 text-primary" />,
+      href: "/latihan/menulis"
     }
   ];
 
@@ -52,7 +58,7 @@ export default function LatihanPage() {
               <Card 
                 hoverable 
                 withMotif 
-                motifVariant="pucok-reubong" 
+                motifVariant="pinto" 
                 className="bg-white border border-dark/5 p-6 h-full flex flex-col items-center text-center transition-all group-hover:border-primary/30"
               >
                 <div className="w-16 h-16 rounded-full bg-cream flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">

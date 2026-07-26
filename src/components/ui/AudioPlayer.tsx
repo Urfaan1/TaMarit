@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { VolumeX, Volume1, Music } from 'lucide-react';
+import { VolumeX, Volume1, Music, SkipForward } from 'lucide-react';
 
 const playlist = [
   "/audio/lagu-aceh-1.mp3",
@@ -72,6 +72,12 @@ export function AudioPlayer() {
     setCurrentTrackIdx((prevIdx) => (prevIdx + 1) % playlist.length);
   };
 
+  const handleSkip = () => {
+    setCurrentTrackIdx((prevIdx) => (prevIdx + 1) % playlist.length);
+    setHasInteracted(true);
+    setIsPlaying(true);
+  };
+
   return (
     <>
       <audio 
@@ -82,17 +88,17 @@ export function AudioPlayer() {
       />
       
       <div 
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-3"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Slider Volume (Membuka ke samping saat di-hover) */}
+        {/* Slider Volume & Skip (Membuka ke samping saat di-hover) */}
         <div 
           className={`overflow-hidden transition-all duration-300 ease-in-out bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-dark/10 flex items-center
-            ${isHovered ? "w-36 px-4 opacity-100 h-14" : "w-0 opacity-0 h-14 border-transparent shadow-none px-0"}`}
+            ${isHovered ? "w-48 px-3 opacity-100 h-14" : "w-0 opacity-0 h-14 border-transparent shadow-none px-0"}`}
         >
-          <div className="flex items-center gap-2 w-full min-w-[100px]">
-            {volume === 0 ? <VolumeX className="w-4 h-4 text-dark/50" /> : <Volume1 className="w-4 h-4 text-dark/50" />}
+          <div className="flex items-center gap-2 w-full min-w-[140px]">
+            {volume === 0 ? <VolumeX className="w-4 h-4 text-dark/50 flex-shrink-0" /> : <Volume1 className="w-4 h-4 text-dark/50 flex-shrink-0" />}
             <input
               type="range"
               min="0"
@@ -103,6 +109,13 @@ export function AudioPlayer() {
               className="w-full h-1.5 bg-dark/10 rounded-lg appearance-none cursor-pointer accent-primary"
               title={`Volume: ${Math.round(volume * 100)}%`}
             />
+            <button 
+              onClick={handleSkip}
+              className="p-1.5 rounded-full hover:bg-dark/5 text-dark/60 hover:text-primary transition-colors flex-shrink-0 ml-1"
+              title="Ganti Lagu Berikutnya"
+            >
+              <SkipForward className="w-4 h-4" />
+            </button>
           </div>
         </div>
 

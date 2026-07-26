@@ -1,13 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
 
-export default function HadihMajaPage() {
-  const hadihMajaList = [
+export const hadihMajaList = [
     {
       pepatah: "Adat bak Poteumeureuhom, Hukom bak Syiah Kuala, Qanun bak Putroe Phang, Reusam bak Laksamana.",
       arti: "Adat berada pada Sultan (Poteumeureuhom), hukum agama pada Syiah Kuala, peraturan pada Putroe Phang, dan pelaksanaan adat di laut pada Laksamana.",
@@ -60,6 +59,7 @@ export default function HadihMajaPage() {
     }
   ];
 
+export default function HadihMajaPage() {
   return (
     <div className="w-full min-h-[70vh] bg-cream">
       <Section

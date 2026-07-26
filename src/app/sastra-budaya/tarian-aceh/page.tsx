@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/Badge";
 import { CheckCircle2, ChevronDown, Activity, Sparkles, Target, BookOpen, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
-const dances = [
+export const dances = [
   {
     name: "Tari Saman",
     goal: "Peserta didik mampu memahami sejarah, fungsi, dan nilai budaya Tari Saman.",
