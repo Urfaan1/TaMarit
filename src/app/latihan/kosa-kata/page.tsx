@@ -160,7 +160,7 @@ export const vocabularyData = [
       { id: "Baik", aceh: "Get" },
       { id: "Besar", aceh: "Rayeuk" },
       { id: "Kecil", aceh: "Ubit" },
-      { id: "Cantik", aceh: "Cantek" },
+      { id: "Cantik", aceh: "Ceudah" },
       { id: "Tampan", aceh: "Gagah" },
       { id: "Pintar", aceh: "Ceudah" },
       { id: "Jujur", aceh: "Jujur" },

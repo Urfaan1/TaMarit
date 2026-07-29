@@ -12,7 +12,10 @@ import {
   Quote,
   Users,
   Heart,
-  Sparkles
+  Sparkles,
+  Coffee,
+  Landmark,
+  X
 } from "lucide-react";
 
 import { vocabularyData } from "./latihan/kosa-kata/page";
@@ -61,8 +64,36 @@ function getDailyCards() {
   return dailyCards;
 }
 
+const triviaList = [
+  {
+    title: "Kopi Gayo Mendunia",
+    short: "Kopi Arabika dari dataran tinggi Gayo, Aceh Tengah, merupakan salah satu komoditas kopi premium yang paling dicari di pasar internasional karena aroma khas dan tingkat keasamannya yang rendah.",
+    full: "Dataran tinggi Gayo di Aceh Tengah adalah rumah bagi perkebunan kopi Arabika terluas di Asia Tenggara. Kopi Gayo memiliki ciri khas aroma yang sangat kuat, tingkat keasaman (acidity) yang rendah, dan rasa (aftertaste) rempah yang bersih. Karena kualitasnya yang luar biasa, kopi ini telah menerima sertifikasi Indikasi Geografis (IG) dan banyak digunakan sebagai campuran utama di berbagai kedai kopi ternama di Eropa dan Amerika.",
+    icon: Coffee,
+    gradient: "from-green-50 to-emerald-100/50",
+    border: "border-green-100",
+    textDark: "text-green-950",
+    textLight: "text-green-900",
+    iconBg: "text-green-600",
+    bgIcon: "text-green-900"
+  },
+  {
+    title: "Simbol Ketangguhan",
+    short: "Masjid Raya Baiturrahman tidak hanya menjadi ikon religius, tetapi juga simbol ketangguhan rakyat Aceh. Masjid ini tetap kokoh berdiri saat gempa dan tsunami dahsyat melanda pada tahun 2004.",
+    full: "Dibangun pada era Kesultanan Aceh (sekitar 1612 oleh Sultan Iskandar Muda), Masjid Raya Baiturrahman memiliki sejarah yang panjang. Ia pernah dibakar oleh Belanda pada 1873, lalu dibangun kembali pada 1879. Saat gempa dan tsunami dahsyat melanda Aceh pada 26 Desember 2004, bangunan megah ini menjadi salah satu struktur yang bertahan kokoh di pusat kota Banda Aceh, menyelamatkan ribuan nyawa yang berlindung di dalamnya. Kini, dengan payung-payung elektrik yang menyerupai Masjid Nabawi di Madinah, ia berdiri tegak sebagai lambang kebangkitan rakyat Aceh.",
+    icon: Landmark,
+    gradient: "from-orange-50 to-amber-100/50",
+    border: "border-orange-100",
+    textDark: "text-orange-950",
+    textLight: "text-orange-900",
+    iconBg: "text-orange-600",
+    bgIcon: "text-orange-900"
+  }
+];
+
 export default function Dashboard() {
   const [cards, setCards] = useState(() => getDailyCards());
+  const [selectedTrivia, setSelectedTrivia] = useState<typeof triviaList[0] | null>(null);
 
   const nextCard = () => {
     setCards(prev => {
@@ -185,7 +216,75 @@ export default function Dashboard() {
           </div>
         </section>
 
+        {/* Trivia / Tahukah Anda */}
+        <section className="mt-12 mb-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-1 h-8 bg-green-500 rounded-full"></div>
+            <h2 className="text-2xl font-serif font-bold text-dark">Tahukah Anda?</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {triviaList.map((trivia, idx) => (
+              <div 
+                key={idx}
+                onClick={() => setSelectedTrivia(trivia)}
+                className={`bg-gradient-to-br ${trivia.gradient} p-6 rounded-3xl border ${trivia.border} shadow-sm relative overflow-hidden group hover:shadow-md transition-all cursor-pointer`}
+              >
+                <div className={`absolute -right-6 -top-6 opacity-10 transform group-hover:scale-110 transition-transform duration-500`}>
+                  <trivia.icon className={`w-32 h-32 ${trivia.bgIcon}`} />
+                </div>
+                <div className="flex items-start gap-4 relative z-10">
+                  <div className={`bg-white p-3 rounded-2xl shadow-sm ${trivia.iconBg}`}>
+                    <trivia.icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className={`font-bold text-lg ${trivia.textDark} mb-2`}>{trivia.title}</h3>
+                    <p className={`${trivia.textLight} opacity-80 text-sm leading-relaxed mb-3`}>
+                      {trivia.short}
+                    </p>
+                    <span className={`text-xs font-bold ${trivia.iconBg} bg-white/50 px-3 py-1 rounded-full group-hover:bg-white transition-colors`}>
+                      Baca selengkapnya &rarr;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
       </div>
+
+      {/* Modal Penjelasan Rinci */}
+      {selectedTrivia && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in" onClick={() => setSelectedTrivia(null)}>
+          <div 
+            className={`bg-gradient-to-br ${selectedTrivia.gradient} p-8 md:p-10 rounded-3xl max-w-2xl w-full border ${selectedTrivia.border} shadow-2xl relative overflow-hidden scale-in animation-duration-200`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              onClick={() => setSelectedTrivia(null)}
+              className="absolute top-4 right-4 bg-white/50 p-2 rounded-full hover:bg-white transition-colors z-20"
+            >
+              <X className={`w-6 h-6 ${selectedTrivia.textDark}`} />
+            </button>
+            <div className={`absolute -right-10 -bottom-10 opacity-5`}>
+              <selectedTrivia.icon className={`w-64 h-64 ${selectedTrivia.bgIcon}`} />
+            </div>
+            
+            <div className="relative z-10">
+              <div className={`bg-white p-4 rounded-2xl shadow-sm inline-block mb-6 ${selectedTrivia.iconBg}`}>
+                <selectedTrivia.icon className="w-10 h-10" />
+              </div>
+              <h2 className={`text-3xl font-serif font-bold ${selectedTrivia.textDark} mb-4`}>
+                {selectedTrivia.title}
+              </h2>
+              <p className={`${selectedTrivia.textLight} text-lg leading-relaxed font-medium`}>
+                {selectedTrivia.full}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
