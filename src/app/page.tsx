@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
   HelpCircle, 
@@ -15,7 +15,10 @@ import {
   Sparkles,
   Coffee,
   Landmark,
-  X
+  X,
+  Music,
+  Utensils,
+  Gem
 } from "lucide-react";
 
 import { vocabularyData } from "./latihan/kosa-kata/page";
@@ -88,12 +91,54 @@ const triviaList = [
     textLight: "text-orange-900",
     iconBg: "text-orange-600",
     bgIcon: "text-orange-900"
+  },
+  {
+    title: "Tari Saman Mendunia",
+    short: "Tari Saman dari Gayo Lues telah diakui oleh UNESCO sebagai Warisan Budaya Takbenda Manusia sejak tahun 2011.",
+    full: "Tari Saman adalah salah satu kesenian tradisional yang paling terkenal dari Aceh, khususnya dari dataran tinggi Gayo. Berbeda dengan tarian pada umumnya, Tari Saman tidak menggunakan iringan alat musik, melainkan menggunakan suara dari para penarinya dan tepukan tangan, dada, serta paha. Kecepatan dan kekompakan gerakan yang luar biasa membuat tarian ini diakui UNESCO sebagai Karya Agung Warisan Budaya Lisan dan Nonbendawi Manusia pada tahun 2011.",
+    icon: Music,
+    gradient: "from-blue-50 to-cyan-100/50",
+    border: "border-blue-100",
+    textDark: "text-blue-950",
+    textLight: "text-blue-900",
+    iconBg: "text-blue-600",
+    bgIcon: "text-blue-900"
+  },
+  {
+    title: "Kelezatan Mi Aceh",
+    short: "Mi Aceh terkenal dengan racikan bumbu rempah yang sangat kaya, menjadikannya salah satu kuliner Nusantara yang paling ikonik.",
+    full: "Mi Aceh adalah hidangan mi kuning tebal dengan irisan daging sapi, daging kambing, atau makanan laut yang disajikan dalam sup sejenis kari yang gurih dan pedas. Kekayaan bumbu rempahnya mencerminkan pengaruh budaya kuliner India dan Arab yang berpadu dengan bahan lokal, menciptakan rasa pedas, gurih, dan asam yang sangat khas. Mi Aceh biasanya disajikan dengan emping, irisan bawang merah, mentimun, dan perasan jeruk nipis.",
+    icon: Utensils,
+    gradient: "from-red-50 to-rose-100/50",
+    border: "border-red-100",
+    textDark: "text-red-950",
+    textLight: "text-red-900",
+    iconBg: "text-red-600",
+    bgIcon: "text-red-900"
+  },
+  {
+    title: "Motif Pinto Aceh",
+    short: "Motif Pinto Aceh adalah desain perhiasan tradisional yang bentuknya terinspirasi dari monumen Pintu Khop, taman peninggalan Sultan Iskandar Muda.",
+    full: "Pinto Aceh (Pintu Aceh) merupakan motif ukiran dan perhiasan khas Aceh yang sangat populer. Motif ini diciptakan pada tahun 1926 oleh Mahmud Ibrahim (Utoh Mud), terinspirasi dari desain Pintu Khop, yaitu gerbang taman Putroe Phang yang dibangun oleh Sultan Iskandar Muda untuk permaisurinya dari Pahang. Saat ini, motif Pinto Aceh banyak digunakan pada perhiasan emas, bros, batik, hingga dekorasi bangunan, sebagai simbol keanggunan budaya Aceh.",
+    icon: Gem,
+    gradient: "from-purple-50 to-fuchsia-100/50",
+    border: "border-purple-100",
+    textDark: "text-purple-950",
+    textLight: "text-purple-900",
+    iconBg: "text-purple-600",
+    bgIcon: "text-purple-900"
   }
 ];
 
 export default function Dashboard() {
   const [cards, setCards] = useState(() => getDailyCards());
   const [selectedTrivia, setSelectedTrivia] = useState<typeof triviaList[0] | null>(null);
+  const [displayTrivia, setDisplayTrivia] = useState<typeof triviaList>([]);
+
+  useEffect(() => {
+    const shuffled = [...triviaList].sort(() => 0.5 - Math.random());
+    setDisplayTrivia(shuffled.slice(0, 2));
+  }, []);
 
   const nextCard = () => {
     setCards(prev => {
@@ -224,7 +269,7 @@ export default function Dashboard() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {triviaList.map((trivia, idx) => (
+            {displayTrivia.map((trivia, idx) => (
               <div 
                 key={idx}
                 onClick={() => setSelectedTrivia(trivia)}

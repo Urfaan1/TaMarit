@@ -12,7 +12,7 @@ export function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [currentTrackIdx, setCurrentTrackIdx] = useState(0);
-  const [volume, setVolume] = useState(0.5); // Default volume 50%
+  const [volume, setVolume] = useState(0.25); // Default volume 25%
   const [isHovered, setIsHovered] = useState(false);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
