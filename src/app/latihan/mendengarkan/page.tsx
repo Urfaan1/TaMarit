@@ -247,7 +247,7 @@ export default function MendengarkanPage() {
                 setIsFinished(false);
                 setCurrentQuestionIdx(0);
                 setSelectedAnswers({});
-              }} icon={<RotateCcw className="w-4 h-4" />}>
+              }} leftIcon={<RotateCcw className="w-4 h-4" />}>
                 Ulangi Kuis
               </Button>
             </div>
