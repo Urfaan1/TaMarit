@@ -25,7 +25,7 @@ export function Sidebar() {
     { href: "/tes", label: "Uji Kemahiran", icon: <GraduationCap className="w-5 h-5" /> },
     { href: "/latihan", label: "Latihan", icon: <Book className="w-5 h-5" /> },
     { href: "/sastra-budaya", label: "Sastra", icon: <BookOpen className="w-5 h-5" /> },
-    { href: "/permainan", label: "Gamifikasi", icon: <Gamepad2 className="w-5 h-5" /> },
+    { href: "/permainan", label: "Permainan", icon: <Gamepad2 className="w-5 h-5" /> },
     { href: "/tentang", label: "Tentang Kami", icon: <Info className="w-5 h-5" /> },
   ];
 

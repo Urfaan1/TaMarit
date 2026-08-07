@@ -306,7 +306,7 @@ export default function TentangPage() {
               { icon: BookOpen, title: "Tata Bahasa", desc: "Panduan struktur dan kaidah bahasa Aceh." },
               { icon: Users, title: "Budaya Aceh", desc: "Mengenal adat, sejarah, dan kesenian." },
               { icon: HelpCircle, title: "Kuis Interaktif", desc: "Latihan soal untuk menguji pemahaman." },
-              { icon: Gamepad2, title: "Gamifikasi", desc: "Sistem poin dan penghargaan saat belajar." },
+              { icon: Gamepad2, title: "Permainan Edukasi", desc: "Sistem poin dan penghargaan saat belajar." },
             ].map((fitur, idx) => (
               <div key={idx} className={`bg-white/10 backdrop-blur-sm border border-white/10 p-6 rounded-3xl hover:bg-white/20 transition-all hover:-translate-y-1 ${idx === 6 ? "sm:col-span-2 lg:col-span-2" : ""}`}>
                 <div className="w-12 h-12 bg-accent-gold rounded-xl flex items-center justify-center text-dark mb-5 shadow-lg">
@@ -382,54 +382,65 @@ export default function TentangPage() {
             <p className="text-gray-500">Tahapan pengembangan TaMarit ke depan.</p>
           </div>
 
-          <div className="relative border-l-2 border-primary/20 ml-4 md:ml-1/2 md:translate-x-[calc(50%-1px)] space-y-12">
+          <div className="relative space-y-12">
+            {/* Garis Vertikal */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 md:-translate-x-1/2"></div>
             
             {/* Version 1.0 */}
-            <div className="relative flex items-center md:justify-end md:w-1/2 md:-ml-[calc(50%+1px)] pl-8 md:pl-0 md:pr-12 group">
-              <div className="absolute left-[-9px] md:right-[-9px] md:left-auto w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md"></div>
-              <div className="bg-cream p-6 rounded-3xl shadow-sm border border-gray-100 w-full hover:-translate-y-1 transition-transform">
-                <span className="text-primary font-bold text-sm mb-2 block">Versi 1.0 (Sekarang)</span>
-                <h4 className="text-xl font-bold text-dark mb-4">Pondasi Pembelajaran</h4>
-                <ul className="space-y-2">
-                  {["Kamus Dasar", "Kosakata Tematik", "Modul Tata Bahasa"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500" /> {item}
-                    </li>
-                  ))}
-                </ul>
+            <div className="relative flex flex-col md:flex-row md:justify-between items-center w-full">
+              <div className="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 order-2 md:order-1">
+                <div className="bg-cream p-6 rounded-3xl shadow-sm border border-gray-100 w-full hover:-translate-y-1 transition-transform text-left">
+                  <span className="text-primary font-bold text-sm mb-2 block">Versi 1.0 (Sekarang)</span>
+                  <h4 className="text-xl font-bold text-dark mb-4">Pondasi Pembelajaran</h4>
+                  <ul className="space-y-2">
+                    {["Kamus Dasar", "Kosakata Tematik", "Modul Tata Bahasa"].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                        <CheckCircle className="w-4 h-4 text-green-500" /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
+              <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md z-10"></div>
+              <div className="hidden md:block md:w-1/2 order-3"></div>
             </div>
 
             {/* Version 2.0 */}
-            <div className="relative flex items-center md:justify-start md:w-1/2 md:ml-[calc(50%-1px)] pl-8 md:pl-12 group">
-              <div className="absolute left-[-9px] w-4 h-4 bg-accent-gold rounded-full border-4 border-white shadow-md"></div>
-              <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-200 w-full hover:-translate-y-1 transition-transform">
-                <span className="text-accent-gold font-bold text-sm mb-2 block">Versi 2.0</span>
-                <h4 className="text-xl font-bold text-dark mb-4">Interaktivitas & Audio</h4>
-                <ul className="space-y-2">
-                  {["Audio Pelafalan Asli", "Kuis & Ujian Terpandu", "Game Edukasi (Gamifikasi)"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                      <PlayCircle className="w-4 h-4 text-accent-gold" /> {item}
-                    </li>
-                  ))}
-                </ul>
+            <div className="relative flex flex-col md:flex-row md:justify-between items-center w-full">
+              <div className="hidden md:block md:w-1/2 order-1"></div>
+              <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent-gold rounded-full border-4 border-white shadow-md z-10"></div>
+              <div className="w-full md:w-1/2 pl-12 md:pl-12 order-2 md:order-3">
+                <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-200 w-full hover:-translate-y-1 transition-transform text-left">
+                  <span className="text-accent-gold font-bold text-sm mb-2 block">Versi 2.0</span>
+                  <h4 className="text-xl font-bold text-dark mb-4">Interaktivitas & Audio</h4>
+                  <ul className="space-y-2">
+                    {["Audio Pelafalan Asli", "Kuis & Ujian Terpandu", "Permainan Edukasi"].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                        <PlayCircle className="w-4 h-4 text-accent-gold" /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
 
             {/* Version 3.0 */}
-            <div className="relative flex items-center md:justify-end md:w-1/2 md:-ml-[calc(50%+1px)] pl-8 md:pl-0 md:pr-12 group">
-              <div className="absolute left-[-9px] md:right-[-9px] md:left-auto w-4 h-4 bg-dark rounded-full border-4 border-white shadow-md"></div>
-              <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-200 w-full hover:-translate-y-1 transition-transform">
-                <span className="text-gray-500 font-bold text-sm mb-2 block">Versi 3.0</span>
-                <h4 className="text-xl font-bold text-dark mb-4">Teknologi Masa Depan</h4>
-                <ul className="space-y-2">
-                  {["AI Tutor Bahasa Aceh", "Pengenalan Suara (Speech Rec.)", "Forum Komunitas Belajar"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                      <BrainCircuit className="w-4 h-4 text-gray-400" /> {item}
-                    </li>
-                  ))}
-                </ul>
+            <div className="relative flex flex-col md:flex-row md:justify-between items-center w-full">
+              <div className="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 order-2 md:order-1">
+                <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-200 w-full hover:-translate-y-1 transition-transform text-left">
+                  <span className="text-gray-500 font-bold text-sm mb-2 block">Versi 3.0</span>
+                  <h4 className="text-xl font-bold text-dark mb-4">Teknologi Masa Depan</h4>
+                  <ul className="space-y-2">
+                    {["AI Tutor Bahasa Aceh", "Pengenalan Suara (Speech Rec.)", "Forum Komunitas Belajar"].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                        <BrainCircuit className="w-4 h-4 text-gray-400" /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
+              <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-dark rounded-full border-4 border-white shadow-md z-10"></div>
+              <div className="hidden md:block md:w-1/2 order-3"></div>
             </div>
 
           </div>
@@ -445,7 +456,7 @@ export default function TentangPage() {
           <div className="flex flex-col gap-4">
             {[
               { q: "Apakah Tamarit gratis?", a: "Ya, Tamarit 100% gratis digunakan oleh siapa saja untuk mendukung pelestarian bahasa Aceh." },
-              { q: "Apakah perlu membuat akun?", a: "Untuk fitur dasar tidak perlu. Namun, pembuatan akun disarankan agar sistem dapat menyimpan progres belajar dan poin gamifikasi Anda." },
+              { q: "Apakah perlu membuat akun?", a: "Untuk fitur dasar tidak perlu. Namun, pembuatan akun disarankan agar sistem dapat menyimpan progres belajar dan poin permainan Anda." },
               { q: "Siapa yang dapat menggunakan Tamarit?", a: "Siapa saja! Mulai dari pelajar, mahasiswa, masyarakat umum, perantau, hingga wisatawan yang ingin belajar bahasa Aceh." },
               { q: "Apakah materi akan selalu diperbarui?", a: "Tentu. Kami secara berkala berkolaborasi dengan ahli bahasa dan tokoh adat untuk memperbarui dan memvalidasi materi." },
               { q: "Bagaimana cara memberikan saran atau materi tambahan?", a: "Anda dapat menggunakan formulir di bagian bawah halaman ini atau menghubungi kami via email dan media sosial." },

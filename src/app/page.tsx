@@ -246,7 +246,7 @@ export default function Dashboard() {
               { title: "Uji Kemahiran", desc: "Ukur level bahasa Aceh-mu.", icon: HelpCircle, href: "/tes" },
               { title: "Latihan", desc: "Materi interaktif & terstruktur.", icon: BookOpenText, href: "/latihan" },
               { title: "Budaya", desc: "Eksplorasi adat & sastra.", icon: BookOpen, href: "/sastra-budaya" },
-              { title: "Gamifikasi", desc: "Belajar lewat permainan.", icon: Gamepad2, href: "/permainan" },
+              { title: "Permainan Edukasi", desc: "Belajar lewat permainan.", icon: Gamepad2, href: "/permainan" },
             ].map((item, idx) => (
               <Link key={idx} href={item.href} className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 flex flex-col gap-4 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 group">
                 <div className="bg-gray-50 p-4 rounded-2xl w-fit group-hover:bg-primary/10 transition-colors">

@@ -42,7 +42,7 @@ export default function PermainanPage() {
     <div className="w-full min-h-[70vh] bg-cream">
       <Section
         background="cream"
-        title="Pusat Gamifikasi"
+        title="Pusat Permainan"
         subtitle="Belajar bahasa dan budaya Aceh menjadi lebih seru dan menantang melalui berbagai permainan interaktif."
         showDivider
         centerTitle
