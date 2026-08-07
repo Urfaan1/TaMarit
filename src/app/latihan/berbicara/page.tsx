@@ -6,7 +6,6 @@ import {
   Bell, 
   ChevronRight, 
   Volume2, 
-  Play, 
   RotateCcw,
   User,
   MessageSquare
@@ -113,9 +112,6 @@ export default function LatihanBerbicara() {
                   </p>
                 </div>
               </div>
-              <button className="flex items-center justify-center w-10 h-10 rounded-full bg-[#E5E9E8] text-[#0A3632] hover:bg-primary hover:text-white transition-colors" title="Putar Semua Audio">
-                <Play className="w-4 h-4 ml-0.5 fill-current" />
-              </button>
             </div>
 
             {/* Chat Messages Area */}

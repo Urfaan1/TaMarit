@@ -44,7 +44,7 @@ export const berbicaraScenarios: Scenario[] = [
     id: "lapangan",
     title: "Di Lapangan",
     description: "Habib dan Riyadh berbincang santai di bawah pohon.",
-    image: "https://images.unsplash.com/photo-1501633519183-f66f91d5ceeb?auto=format&fit=crop&q=80&w=800",
+    image: "/images/lapangan.png",
     dialogue: [
       { speaker: "Habib", text: "Yadh ,yak tajak duek iyup bak kayee nyan.", isMainCharacter: true },
       { speaker: "Riyadh", text: "han ek loen, na cicem i ateuh bak kaye nyan", isMainCharacter: false },
@@ -58,7 +58,7 @@ export const berbicaraScenarios: Scenario[] = [
     id: "dapur",
     title: "Di Dapur",
     description: "Ayu membantu Mak mempersiapkan masakan di dapur.",
-    image: "https://images.unsplash.com/photo-1556910103-1c02745a872f?auto=format&fit=crop&q=80&w=800",
+    image: "/images/dapur.png",
     dialogue: [
       { speaker: "Ayu", text: "Mak, kana pingan lam mari?", isMainCharacter: true },
       { speaker: "Mak", text: "Na, coek ju, na sikin cit inan.", isMainCharacter: false },
