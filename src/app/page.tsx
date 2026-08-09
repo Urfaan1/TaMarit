@@ -195,7 +195,7 @@ export default function Dashboard() {
           </div>
 
           {/* Bagian Kanan: Tumpukan Kartu (Deck) */}
-          <div className="relative w-full h-[22rem] cursor-pointer mt-12 md:mt-0 flex flex-col" onClick={nextCard}>
+          <div className="relative w-full h-[18rem] sm:h-[20rem] md:h-[22rem] cursor-pointer mt-8 md:mt-0 flex flex-col" onClick={nextCard}>
             <div className="mb-4 inline-flex w-fit items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-md rounded-full shadow-sm border border-dark/5 mx-auto md:mx-0 z-20">
               <Sparkles className="w-4 h-4 text-accent-gold" />
               <span className="text-xs font-bold uppercase tracking-widest text-dark/70">Kartu Hari Ini</span>
@@ -212,7 +212,7 @@ export default function Dashboard() {
                 return (
                   <div 
                     key={card.title + idx}
-                    className={`absolute top-0 left-0 w-full h-full rounded-[2rem] p-8 shadow-xl transition-all duration-500 ease-in-out border border-dark/5 flex flex-col justify-center ${card.color}`}
+                    className={`absolute top-0 left-0 w-full h-full rounded-[1.5rem] md:rounded-[2rem] p-5 sm:p-6 md:p-8 shadow-xl transition-all duration-500 ease-in-out border border-dark/5 flex flex-col justify-center ${card.color}`}
                     style={{
                       transform: `translateY(${translateY}px) scale(${scale})`,
                       opacity,
@@ -255,13 +255,13 @@ export default function Dashboard() {
               { title: "Budaya", desc: "Eksplorasi adat & sastra.", icon: BookOpen, href: "/#sastra-budaya" },
               { title: "Permainan Edukasi", desc: "Belajar lewat permainan.", icon: Gamepad2, href: "/#permainan" },
             ].map((item, idx) => (
-              <Link key={idx} href={item.href} className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 flex flex-col gap-4 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 group">
-                <div className="bg-gray-50 p-4 rounded-2xl w-fit group-hover:bg-primary/10 transition-colors">
-                  <item.icon className="w-8 h-8 text-dark/70 group-hover:text-primary transition-colors" />
+              <Link key={idx} href={item.href} className="bg-white/80 backdrop-blur-md rounded-[1.5rem] md:rounded-3xl p-4 sm:p-5 md:p-8 flex flex-col gap-3 md:gap-4 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 group">
+                <div className="bg-gray-50 p-3 md:p-4 rounded-xl md:rounded-2xl w-fit group-hover:bg-primary/10 transition-colors">
+                  <item.icon className="w-6 h-6 md:w-8 md:h-8 text-dark/70 group-hover:text-primary transition-colors" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-dark/90 group-hover:text-primary mb-1">{item.title}</h3>
-                  <p className="text-xs text-dark/50 leading-relaxed">{item.desc}</p>
+                  <h3 className="font-bold text-base md:text-lg text-dark/90 group-hover:text-primary mb-0.5 md:mb-1">{item.title}</h3>
+                  <p className="text-[10px] md:text-xs text-dark/50 leading-relaxed line-clamp-2 md:line-clamp-none">{item.desc}</p>
                 </div>
               </Link>
             ))}
@@ -280,18 +280,18 @@ export default function Dashboard() {
               <div 
                 key={idx}
                 onClick={() => setSelectedTrivia(trivia)}
-                className={`bg-gradient-to-br ${trivia.gradient} p-6 rounded-3xl border ${trivia.border} shadow-sm relative overflow-hidden group hover:shadow-md transition-all cursor-pointer`}
+                className={`bg-gradient-to-br ${trivia.gradient} p-5 md:p-6 rounded-2xl md:rounded-3xl border ${trivia.border} shadow-sm relative overflow-hidden group hover:shadow-md transition-all cursor-pointer`}
               >
                 <div className={`absolute -right-6 -top-6 opacity-10 transform group-hover:scale-110 transition-transform duration-500`}>
                   <trivia.icon className={`w-32 h-32 ${trivia.bgIcon}`} />
                 </div>
-                <div className="flex items-start gap-4 relative z-10">
-                  <div className={`bg-white p-3 rounded-2xl shadow-sm ${trivia.iconBg}`}>
-                    <trivia.icon className="w-6 h-6" />
+                <div className="flex items-start gap-3 md:gap-4 relative z-10">
+                  <div className={`bg-white p-2.5 md:p-3 rounded-xl md:rounded-2xl shadow-sm ${trivia.iconBg}`}>
+                    <trivia.icon className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <h3 className={`font-bold text-lg ${trivia.textDark} mb-2`}>{trivia.title}</h3>
-                    <p className={`${trivia.textLight} opacity-80 text-sm leading-relaxed mb-3`}>
+                    <h3 className={`font-bold text-base md:text-lg ${trivia.textDark} mb-1 md:mb-2`}>{trivia.title}</h3>
+                    <p className={`${trivia.textLight} opacity-80 text-xs md:text-sm leading-relaxed mb-3 line-clamp-2 md:line-clamp-none`}>
                       {trivia.short}
                     </p>
                     <span className={`text-xs font-bold ${trivia.iconBg} bg-white/50 px-3 py-1 rounded-full group-hover:bg-white transition-colors`}>
