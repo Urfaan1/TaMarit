@@ -3,7 +3,7 @@ import { BungongJeumpa } from "./Motifs";
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: "primary" | "gold" | "green" | "dark" | "outline";
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "lg";
   showDot?: boolean;
 }
 
@@ -29,6 +29,7 @@ export function Badge({
   const sizes = {
     sm: "px-2.5 py-0.5 text-[10px]",
     md: "px-3.5 py-1 text-xs",
+    lg: "px-4 py-1.5 text-sm",
   };
 
   return (
