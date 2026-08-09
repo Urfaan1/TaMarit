@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
@@ -43,18 +44,46 @@ export default function TentangPage() {
     subject: "Kritik & Saran",
     message: "",
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const result = await emailjs.send(
+        "service_ttdj606",
+        "template_3zzrg46",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        {
+          publicKey: "ogyWK2-2kdTKZpWVg",
+        }
+      );
+      console.log("EmailJS success:", result.status, result.text);
+      setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "Kritik & Saran", message: "" });
-      alert("Terima kasih atas masukan Anda! Pesan telah terkirim.");
-    }, 1500);
+    } catch (err: unknown) {
+      if (err && typeof err === "object" && "status" in err && "text" in err) {
+        const ejsErr = err as { status: number; text: string };
+        console.error("EmailJS error:", ejsErr.status, ejsErr.text);
+      } else {
+        console.error("EmailJS unexpected error:", err);
+      }
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    }
   };
 
   const toggleFaq = (idx: number) => {
@@ -559,12 +588,26 @@ export default function TentangPage() {
                 <Button
                   type="submit"
                   variant="primary"
-                  isLoading={isSubmitted}
+                  isLoading={isSubmitting}
                   className="w-full mt-2 py-4 text-lg rounded-2xl"
                   leftIcon={<Send className="w-5 h-5" />}
                 >
-                  Kirim Pesan
+                  {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
                 </Button>
+
+                {/* Success/Error Notification */}
+                {submitStatus === "success" && (
+                  <div className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-2xl text-green-700 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                    <CheckCircle className="w-5 h-5 shrink-0 text-green-600" />
+                    <p className="text-sm font-semibold">Pesan berhasil terkirim! Terima kasih atas masukan Anda.</p>
+                  </div>
+                )}
+                {submitStatus === "error" && (
+                  <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                    <MessageCircle className="w-5 h-5 shrink-0 text-red-500" />
+                    <p className="text-sm font-semibold">Gagal mengirim pesan. Silakan coba lagi atau hubungi kami langsung.</p>
+                  </div>
+                )}
               </form>
             </Card>
           </div>

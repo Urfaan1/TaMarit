@@ -191,7 +191,7 @@ export default function HikayatPage() {
         className="pt-12 pb-6"
       />
       <div className="max-w-4xl mx-auto px-6 pb-24">
-        <Link href="/sastra-budaya" className="inline-flex items-center gap-2 text-primary hover:underline mb-8 font-medium transition-colors">
+        <Link href="/#sastra-budaya" className="inline-flex items-center gap-2 text-primary hover:underline mb-8 font-medium transition-colors">
           <ArrowLeft className="w-4 h-4" /> Kembali ke Kategori
         </Link>
         <Accordion items={hikayatList} />

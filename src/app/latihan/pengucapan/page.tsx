@@ -21,7 +21,7 @@ export default function PengucapanPage() {
 
       <div className="max-w-4xl mx-auto px-6 pb-20">
         <div className="mb-6">
-          <Link href="/latihan" className="inline-flex items-center gap-2 text-sm font-bold text-dark/60 hover:text-primary transition-colors">
+          <Link href="/#latihan" className="inline-flex items-center gap-2 text-sm font-bold text-dark/60 hover:text-primary transition-colors">
             <ArrowLeft className="w-4 h-4" /> Kembali ke Pusat Latihan
           </Link>
         </div>

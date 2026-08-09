@@ -71,7 +71,7 @@ export default function HadihMajaPage() {
         className="pt-12 pb-6"
       />
       <div className="max-w-5xl mx-auto px-6 pb-24">
-        <Link href="/sastra-budaya" className="inline-flex items-center gap-2 text-primary hover:underline mb-6 font-medium transition-colors">
+        <Link href="/#sastra-budaya" className="inline-flex items-center gap-2 text-primary hover:underline mb-6 font-medium transition-colors">
           <ArrowLeft className="w-4 h-4" /> Kembali ke Kategori
         </Link>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

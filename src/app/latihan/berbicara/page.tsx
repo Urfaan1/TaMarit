@@ -37,7 +37,7 @@ export default function LatihanBerbicara() {
       {/* Breadcrumb & Title */}
       <div className="mb-8">
         <div className="flex items-center gap-2 text-sm text-gray-500 font-medium mb-3">
-          <Link href="/latihan" className="hover:text-primary transition-colors">Latihan</Link>
+          <Link href="/#latihan" className="hover:text-primary transition-colors">Latihan</Link>
           <ChevronRight className="w-4 h-4 text-gray-400" />
           <span className="text-primary font-bold">Berbicara</span>
         </div>

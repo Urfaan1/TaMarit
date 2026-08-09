@@ -94,7 +94,7 @@ export default function TebakGambarPage() {
       <div className="max-w-3xl mx-auto px-6 pb-24">
         {/* Header navigation */}
         <div className="flex items-center justify-between mb-8">
-          <Link href="/permainan">
+          <Link href="/#permainan">
             <Button variant="ghost" leftIcon={<ArrowLeft className="w-4 h-4" />}>
               Kembali
             </Button>
@@ -125,7 +125,7 @@ export default function TebakGambarPage() {
               Hebat! Skor akhir Anda adalah <strong className="text-accent-green text-2xl">{score}</strong> dari {questions.length * 10}.
             </p>
             <div className="flex gap-4">
-              <Link href="/permainan">
+              <Link href="/#permainan">
                 <Button variant="outline">Menu Permainan</Button>
               </Link>
               <Button variant="green" onClick={startNewGame} leftIcon={<RefreshCw className="w-4 h-4" />}>

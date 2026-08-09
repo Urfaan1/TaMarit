@@ -25,6 +25,12 @@ import { vocabularyData } from "./latihan/kosa-kata/page";
 import { hadihMajaList } from "./sastra-budaya/hadih-maja/page";
 import { dances } from "./sastra-budaya/tarian-aceh/page";
 
+import TesSection from "@/components/sections/TesSection";
+import LatihanSection from "@/components/sections/LatihanSection";
+import SastraBudayaSection from "@/components/sections/SastraBudayaSection";
+import PermainanSection from "@/components/sections/PermainanSection";
+import TentangSection from "@/components/sections/TentangSection";
+
 function getDailyCards() {
   const allVocab = vocabularyData.flatMap(cat => cat.words.map(w => ({
     category: "Kosakata",
@@ -181,7 +187,7 @@ export default function Dashboard() {
               Platform digital interaktif untuk mengeksplorasi keindahan bahasa, sastra, dan kekayaan budaya Serambi Mekkah.
             </p>
             <div className="mt-4 flex gap-4">
-              <Link href="/latihan" className="bg-primary text-white font-semibold px-6 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+              <Link href="/#latihan" className="bg-primary text-white font-semibold px-6 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
                 Mulai Belajar
               </Link>
             </div>
@@ -243,10 +249,10 @@ export default function Dashboard() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { title: "Uji Kemahiran", desc: "Ukur level bahasa Aceh-mu.", icon: HelpCircle, href: "/tes" },
-              { title: "Latihan", desc: "Materi interaktif & terstruktur.", icon: BookOpenText, href: "/latihan" },
-              { title: "Budaya", desc: "Eksplorasi adat & sastra.", icon: BookOpen, href: "/sastra-budaya" },
-              { title: "Permainan Edukasi", desc: "Belajar lewat permainan.", icon: Gamepad2, href: "/permainan" },
+              { title: "Uji Kemahiran", desc: "Ukur level bahasa Aceh-mu.", icon: HelpCircle, href: "/#tes" },
+              { title: "Latihan", desc: "Materi interaktif & terstruktur.", icon: BookOpenText, href: "/#latihan" },
+              { title: "Budaya", desc: "Eksplorasi adat & sastra.", icon: BookOpen, href: "/#sastra-budaya" },
+              { title: "Permainan Edukasi", desc: "Belajar lewat permainan.", icon: Gamepad2, href: "/#permainan" },
             ].map((item, idx) => (
               <Link key={idx} href={item.href} className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 flex flex-col gap-4 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 group">
                 <div className="bg-gray-50 p-4 rounded-2xl w-fit group-hover:bg-primary/10 transition-colors">
@@ -297,6 +303,22 @@ export default function Dashboard() {
           </div>
         </section>
 
+      </div>
+
+      <div id="tes">
+        <TesSection />
+      </div>
+      <div id="latihan">
+        <LatihanSection />
+      </div>
+      <div id="sastra-budaya">
+        <SastraBudayaSection />
+      </div>
+      <div id="permainan">
+        <PermainanSection />
+      </div>
+      <div id="tentang">
+        <TentangSection />
       </div>
 
       {/* Modal Penjelasan Rinci */}

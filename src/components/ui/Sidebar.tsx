@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
@@ -19,14 +19,65 @@ import { BookOpenText } from "lucide-react"; // Using this as the logo based on 
 export function Sidebar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState("/");
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const observerOptions = {
+      root: null, // use the viewport
+      rootMargin: "-20% 0px -60% 0px", // Trigger when section is in the upper part of the viewport
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveHash(`/#${entry.target.id}`);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const sections = ["tes", "latihan", "sastra-budaya", "permainan", "tentang"];
+    let hasSections = false;
+    
+    sections.forEach((section) => {
+      const el = document.getElementById(section);
+      if (el) {
+        observer.observe(el);
+        hasSections = true;
+      }
+    });
+    
+    // If we are at the very top, set active to /
+    const handleMainScroll = () => {
+      // Find the scrollable container or window
+      const container = document.getElementById("main-scroll-container") || window;
+      const scrollTop = container === window ? window.scrollY : (container as HTMLElement).scrollTop;
+      
+      if (scrollTop < 100) {
+        setActiveHash("/");
+      }
+    };
+    
+    const container = document.getElementById("main-scroll-container") || window;
+    container.addEventListener("scroll", handleMainScroll);
+
+    return () => {
+      observer.disconnect();
+      container.removeEventListener("scroll", handleMainScroll);
+    };
+  }, [pathname]);
 
   const navLinks = [
     { href: "/", label: "Beranda", icon: <Home className="w-5 h-5" /> },
-    { href: "/tes", label: "Uji Kemahiran", icon: <GraduationCap className="w-5 h-5" /> },
-    { href: "/latihan", label: "Latihan", icon: <Book className="w-5 h-5" /> },
-    { href: "/sastra-budaya", label: "Sastra", icon: <BookOpen className="w-5 h-5" /> },
-    { href: "/permainan", label: "Permainan", icon: <Gamepad2 className="w-5 h-5" /> },
-    { href: "/tentang", label: "Tentang Kami", icon: <Info className="w-5 h-5" /> },
+    { href: "/#tes", label: "Uji Kemahiran", icon: <GraduationCap className="w-5 h-5" /> },
+    { href: "/#latihan", label: "Latihan", icon: <Book className="w-5 h-5" /> },
+    { href: "/#sastra-budaya", label: "Sastra", icon: <BookOpen className="w-5 h-5" /> },
+    { href: "/#permainan", label: "Permainan", icon: <Gamepad2 className="w-5 h-5" /> },
+    { href: "/#tentang", label: "Tentang Kami", icon: <Info className="w-5 h-5" /> },
   ];
 
   return (
@@ -88,7 +139,17 @@ export function Sidebar() {
           {/* Navigation Links */}
           <nav className="flex flex-col gap-2">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              // Highlight based on scroll position if on home page, or pathname matching if on a sub-page
+              let isActive = false;
+              if (pathname === "/") {
+                isActive = activeHash === link.href;
+              } else {
+                // If on a sub-page, highlight the corresponding main category
+                // For example, /latihan/berbicara should highlight /#latihan
+                if (link.href !== "/" && pathname.startsWith(link.href.replace("/#", "/"))) {
+                  isActive = true;
+                }
+              }
               
               return (
                 <Link

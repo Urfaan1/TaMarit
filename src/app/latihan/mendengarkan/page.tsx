@@ -43,7 +43,7 @@ export default function MendengarkanPage() {
         
         <div className="max-w-4xl mx-auto px-6 pb-24">
           <div className="mb-6">
-            <Link href="/latihan" className="inline-flex items-center gap-2 text-dark/50 hover:text-primary transition-colors font-semibold text-sm">
+            <Link href="/#latihan" className="inline-flex items-center gap-2 text-dark/50 hover:text-primary transition-colors font-semibold text-sm">
               <ArrowLeft className="w-4 h-4" /> Kembali ke Latihan
             </Link>
           </div>
