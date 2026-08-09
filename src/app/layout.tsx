@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/ui/Sidebar";
 import { AudioPlayer } from "@/components/ui/AudioPlayer";
+import { Footer } from "@/components/ui/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,6 +36,7 @@ export default function RootLayout({
           <main className="flex-grow p-4 sm:p-6 md:p-8 max-w-6xl mx-auto w-full">
             {children}
           </main>
+          <Footer />
         </div>
         <AudioPlayer />
       </body>

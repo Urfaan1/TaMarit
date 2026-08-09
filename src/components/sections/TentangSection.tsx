@@ -525,13 +525,13 @@ export default function TentangPage() {
               </div>
             </a>
             
-            <a href="https://instagram.com/dutabahasaaceh" target="_blank" rel="noreferrer" className="flex items-center gap-4 bg-cream p-5 rounded-2xl hover:bg-pink-50 hover:text-pink-600 transition-colors group">
+            <a href="https://www.instagram.com/ikadubas.aceh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" className="flex items-center gap-4 bg-cream p-5 rounded-2xl hover:bg-pink-50 hover:text-pink-600 transition-colors group">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:bg-pink-100">
                 <Camera className="w-5 h-5" />
               </div>
               <div>
                 <p className="font-bold text-dark group-hover:text-pink-600">Instagram</p>
-                <p className="text-sm text-gray-500">@dutabahasaaceh</p>
+                <p className="text-sm text-gray-500">@ikadubas.aceh</p>
               </div>
             </a>
           </div>

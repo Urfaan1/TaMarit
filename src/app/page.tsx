@@ -137,11 +137,12 @@ const triviaList = [
 ];
 
 export default function Dashboard() {
-  const [cards, setCards] = useState(() => getDailyCards());
+  const [cards, setCards] = useState<any[]>([]);
   const [selectedTrivia, setSelectedTrivia] = useState<typeof triviaList[0] | null>(null);
   const [displayTrivia, setDisplayTrivia] = useState<typeof triviaList>([]);
 
   useEffect(() => {
+    setCards(getDailyCards());
     const shuffled = [...triviaList].sort(() => 0.5 - Math.random());
     setDisplayTrivia(shuffled.slice(0, 2));
   }, []);
