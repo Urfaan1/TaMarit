@@ -122,8 +122,8 @@ export default function TentangPage() {
           <div className="w-full md:w-1/2 relative animate-fade-in animation-delay-200">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" 
-              alt="Ilustrasi Pembelajaran Digital" 
+              src="/images/fotodubas.JPG" 
+              alt="Ilustrasi Duta Bahasa" 
               className="rounded-3xl shadow-2xl object-cover h-[400px] w-full"
             />
             <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4">
@@ -131,8 +131,8 @@ export default function TentangPage() {
                 <BookOpen className="w-6 h-6" />
               </div>
               <div>
-                <p className="font-bold text-dark text-sm">Pembelajaran Interaktif</p>
-                <p className="text-xs text-gray-500">Berbasis Budaya Lokal</p>
+                <p className="font-bold text-dark text-sm">Duta Bahasa</p>
+                <p className="text-xs text-gray-500">Provinsi Aceh 2026</p>
               </div>
             </div>
           </div>

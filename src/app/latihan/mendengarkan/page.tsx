@@ -123,7 +123,7 @@ function QuizView({ exercise, onBack }: { exercise: ListeningExercise, onBack: (
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(0.25);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
@@ -313,7 +313,7 @@ function PlaylistView({ onBack }: { onBack: () => void }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(0.25);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const currentTrack = tracks[currentTrackIdx];

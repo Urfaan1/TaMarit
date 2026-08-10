@@ -79,6 +79,7 @@ const triviaList = [
     short: "Kopi Arabika dari dataran tinggi Gayo, Aceh Tengah, merupakan salah satu komoditas kopi premium yang paling dicari di pasar internasional karena aroma khas dan tingkat keasamannya yang rendah.",
     full: "Dataran tinggi Gayo di Aceh Tengah adalah rumah bagi perkebunan kopi Arabika terluas di Asia Tenggara. Kopi Gayo memiliki ciri khas aroma yang sangat kuat, tingkat keasaman (acidity) yang rendah, dan rasa (aftertaste) rempah yang bersih. Karena kualitasnya yang luar biasa, kopi ini telah menerima sertifikasi Indikasi Geografis (IG) dan banyak digunakan sebagai campuran utama di berbagai kedai kopi ternama di Eropa dan Amerika.",
     icon: Coffee,
+    image: "/images/kopigayo.jpg",
     gradient: "from-green-50 to-emerald-100/50",
     border: "border-green-100",
     textDark: "text-green-950",
@@ -91,6 +92,7 @@ const triviaList = [
     short: "Masjid Raya Baiturrahman tidak hanya menjadi ikon religius, tetapi juga simbol ketangguhan rakyat Aceh. Masjid ini tetap kokoh berdiri saat gempa dan tsunami dahsyat melanda pada tahun 2004.",
     full: "Dibangun pada era Kesultanan Aceh (sekitar 1612 oleh Sultan Iskandar Muda), Masjid Raya Baiturrahman memiliki sejarah yang panjang. Ia pernah dibakar oleh Belanda pada 1873, lalu dibangun kembali pada 1879. Saat gempa dan tsunami dahsyat melanda Aceh pada 26 Desember 2004, bangunan megah ini menjadi salah satu struktur yang bertahan kokoh di pusat kota Banda Aceh, menyelamatkan ribuan nyawa yang berlindung di dalamnya. Kini, dengan payung-payung elektrik yang menyerupai Masjid Nabawi di Madinah, ia berdiri tegak sebagai lambang kebangkitan rakyat Aceh.",
     icon: Landmark,
+    image: "/images/mesjid raya.jpg",
     gradient: "from-orange-50 to-amber-100/50",
     border: "border-orange-100",
     textDark: "text-orange-950",
@@ -103,6 +105,7 @@ const triviaList = [
     short: "Tari Saman dari Gayo Lues telah diakui oleh UNESCO sebagai Warisan Budaya Takbenda Manusia sejak tahun 2011.",
     full: "Tari Saman adalah salah satu kesenian tradisional yang paling terkenal dari Aceh, khususnya dari dataran tinggi Gayo. Berbeda dengan tarian pada umumnya, Tari Saman tidak menggunakan iringan alat musik, melainkan menggunakan suara dari para penarinya dan tepukan tangan, dada, serta paha. Kecepatan dan kekompakan gerakan yang luar biasa membuat tarian ini diakui UNESCO sebagai Karya Agung Warisan Budaya Lisan dan Nonbendawi Manusia pada tahun 2011.",
     icon: Music,
+    image: "/images/tarisaman.jpg",
     gradient: "from-blue-50 to-cyan-100/50",
     border: "border-blue-100",
     textDark: "text-blue-950",
@@ -115,6 +118,7 @@ const triviaList = [
     short: "Mi Aceh terkenal dengan racikan bumbu rempah yang sangat kaya, menjadikannya salah satu kuliner Nusantara yang paling ikonik.",
     full: "Mi Aceh adalah hidangan mi kuning tebal dengan irisan daging sapi, daging kambing, atau makanan laut yang disajikan dalam sup sejenis kari yang gurih dan pedas. Kekayaan bumbu rempahnya mencerminkan pengaruh budaya kuliner India dan Arab yang berpadu dengan bahan lokal, menciptakan rasa pedas, gurih, dan asam yang sangat khas. Mi Aceh biasanya disajikan dengan emping, irisan bawang merah, mentimun, dan perasan jeruk nipis.",
     icon: Utensils,
+    image: "/images/miaceh.jpg",
     gradient: "from-red-50 to-rose-100/50",
     border: "border-red-100",
     textDark: "text-red-950",
@@ -127,6 +131,7 @@ const triviaList = [
     short: "Motif Pinto Aceh adalah desain perhiasan tradisional yang bentuknya terinspirasi dari monumen Pintu Khop, taman peninggalan Sultan Iskandar Muda.",
     full: "Pinto Aceh (Pintu Aceh) merupakan motif ukiran dan perhiasan khas Aceh yang sangat populer. Motif ini diciptakan pada tahun 1926 oleh Mahmud Ibrahim (Utoh Mud), terinspirasi dari desain Pintu Khop, yaitu gerbang taman Putroe Phang yang dibangun oleh Sultan Iskandar Muda untuk permaisurinya dari Pahang. Saat ini, motif Pinto Aceh banyak digunakan pada perhiasan emas, bros, batik, hingga dekorasi bangunan, sebagai simbol keanggunan budaya Aceh.",
     icon: Gem,
+    image: "/images/pintoaceh.jpg",
     gradient: "from-purple-50 to-fuchsia-100/50",
     border: "border-purple-100",
     textDark: "text-purple-950",
@@ -364,7 +369,17 @@ export default function Dashboard() {
               <h2 className={`text-3xl font-serif font-bold ${selectedTrivia.textDark} mb-4`}>
                 {selectedTrivia.title}
               </h2>
-              <p className={`${selectedTrivia.textLight} text-lg leading-relaxed font-medium`}>
+              
+              {/* Gambar ditambahkan di sini */}
+              <div className="w-full h-48 sm:h-64 mb-6 rounded-2xl overflow-hidden shadow-md">
+                <img 
+                  src={selectedTrivia.image} 
+                  alt={selectedTrivia.title}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+
+              <p className={`${selectedTrivia.textLight} text-base sm:text-lg leading-relaxed font-medium`}>
                 {selectedTrivia.full}
               </p>
             </div>
