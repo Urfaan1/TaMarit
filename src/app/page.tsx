@@ -140,11 +140,21 @@ export default function Dashboard() {
   const [cards, setCards] = useState<any[]>([]);
   const [selectedTrivia, setSelectedTrivia] = useState<typeof triviaList[0] | null>(null);
   const [displayTrivia, setDisplayTrivia] = useState<typeof triviaList>([]);
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
 
   useEffect(() => {
     setCards(getDailyCards());
     const shuffled = [...triviaList].sort(() => 0.5 - Math.random());
     setDisplayTrivia(shuffled.slice(0, 2));
+
+    fetch('/api/visitor')
+      .then(res => res.json())
+      .then(data => {
+        if (data.count !== undefined) {
+          setVisitorCount(data.count);
+        }
+      })
+      .catch(err => console.error("Error fetching visitor count:", err));
   }, []);
 
   const nextCard = () => {
@@ -187,10 +197,18 @@ export default function Dashboard() {
             <p className="text-lg md:text-xl text-dark/70 leading-relaxed font-medium">
               Platform digital interaktif untuk mengeksplorasi keindahan bahasa, sastra, dan kekayaan budaya Serambi Mekkah.
             </p>
-            <div className="mt-4 flex gap-4">
+            <div className="mt-4 flex flex-wrap gap-4 items-center">
               <Link href="/#latihan" className="bg-primary text-white font-semibold px-6 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
                 Mulai Belajar
               </Link>
+              {visitorCount !== null && (
+                <div className="flex items-center gap-2 bg-white/60 backdrop-blur-md px-4 py-2.5 rounded-full border border-dark/5 shadow-sm text-dark/70">
+                  <Users className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold tracking-wide">
+                    {visitorCount.toLocaleString('id-ID')} Pengunjung
+                  </span>
+                </div>
+              )}
             </div>
           </div>
 
