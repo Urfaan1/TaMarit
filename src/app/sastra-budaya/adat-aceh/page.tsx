@@ -12,6 +12,9 @@ export default function AdatAcehPage() {
       title: "1. Peumulia Jamee (Memuliakan Tamu)",
       content: (
         <div className="space-y-4">
+          <div className="mb-4 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 bg-[#FAF6EE]/50 flex justify-center">
+            <img src="/images/adat/pemuliajame.jpg" alt="Peumulia Jamee" className="w-full h-auto max-h-[400px] object-contain" />
+          </div>
           <p><strong>Materi:</strong> Peumulia Jamee merupakan salah satu adat yang paling dikenal di Aceh. Ungkapan "Peumulia Jamee, Adat Geutanyoe" berarti memuliakan tamu adalah adat kita. Masyarakat Aceh percaya bahwa tamu adalah orang yang harus dihormati dan diperlakukan dengan baik. Ketika tamu datang, tuan rumah biasanya menyambut dengan ramah, mempersilakan duduk, serta menyajikan makanan atau minuman sebagai bentuk penghormatan. Tradisi ini mencerminkan sikap ramah, sopan santun, dan rasa persaudaraan yang tinggi.</p>
           <div className="p-4 bg-white rounded-xl border border-dark/5 shadow-sm">
             <span className="text-xs font-bold uppercase text-accent-gold mb-3 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5"/> Nilai</span>
@@ -29,6 +32,9 @@ export default function AdatAcehPage() {
       title: "2. Peusijuek (Tepung Tawar)",
       content: (
         <div className="space-y-4">
+          <div className="mb-4 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 bg-[#FAF6EE]/50 flex justify-center">
+            <img src="/images/adat/peusijuk.jpg" alt="Peusijuek" className="w-full h-auto max-h-[400px] object-contain" />
+          </div>
           <p><strong>Materi:</strong> Peusijuek adalah upacara adat berupa pemberian doa dan tepung tawar sebagai simbol harapan akan keselamatan, keberkahan, dan kebahagiaan. Peusijuek biasanya dilakukan pada berbagai acara, seperti: Pernikahan, Naik rumah baru, Berangkat haji, Memulai usaha, Kendaraan baru, Anak mulai sekolah, dan Pelantikan jabatan. Prosesi ini dipimpin oleh tokoh agama atau tokoh adat dengan membaca doa-doa.</p>
           <div className="p-4 bg-white rounded-xl border border-dark/5 shadow-sm">
             <span className="text-xs font-bold uppercase text-accent-gold mb-3 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5"/> Nilai</span>
@@ -45,6 +51,9 @@ export default function AdatAcehPage() {
       title: "3. Meugang",
       content: (
         <div className="space-y-4">
+          <div className="mb-4 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 bg-[#FAF6EE]/50 flex justify-center">
+            <img src="/images/adat/meugang.jpg" alt="Meugang" className="w-full h-auto max-h-[400px] object-contain" />
+          </div>
           <p><strong>Materi:</strong> Meugang merupakan tradisi memasak dan menikmati daging bersama keluarga menjelang hari-hari besar Islam, yaitu: Ramadan, Idulfitri, Iduladha. Pada hari Meugang masyarakat membeli daging sapi atau kerbau untuk dimasak bersama keluarga. Tradisi ini juga menjadi momen berbagi kepada kerabat, tetangga, dan masyarakat yang kurang mampu.</p>
           <div className="p-4 bg-white rounded-xl border border-dark/5 shadow-sm">
             <span className="text-xs font-bold uppercase text-accent-gold mb-3 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5"/> Nilai</span>
@@ -62,6 +71,9 @@ export default function AdatAcehPage() {
       title: "4. Kenduri",
       content: (
         <div className="space-y-4">
+          <div className="mb-4 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 bg-[#FAF6EE]/50 flex justify-center">
+            <img src="/images/adat/kenduri.jpg" alt="Kenduri" className="w-full h-auto max-h-[400px] object-contain" />
+          </div>
           <p><strong>Materi:</strong> Kenduri adalah kegiatan makan bersama yang disertai doa sebagai ungkapan rasa syukur kepada Allah. Jenis kenduri antara lain: Kenduri Maulid, Kenduri Blang, Kenduri Laut, Kenduri Rumah Baru, Kenduri Syukuran. Dalam kenduri, masyarakat bergotong royong menyiapkan makanan dan menikmati hidangan bersama.</p>
           <div className="p-4 bg-white rounded-xl border border-dark/5 shadow-sm">
             <span className="text-xs font-bold uppercase text-accent-gold mb-3 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5"/> Nilai</span>
@@ -79,6 +91,9 @@ export default function AdatAcehPage() {
       title: "5. Adat Perkawinan Aceh",
       content: (
         <div className="space-y-4">
+          <div className="mb-4 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 bg-[#FAF6EE]/50 flex justify-center">
+            <img src="/images/adat/adatperkawinan.jpg" alt="Adat Perkawinan Aceh" className="w-full h-auto max-h-[400px] object-contain" />
+          </div>
           <p><strong>Materi:</strong> Perkawinan adat Aceh terdiri atas beberapa tahapan, yaitu: Cah Rhot (mencari informasi calon pasangan), Jak Ba Ranub (melamar), Intat Linto (mengantar mempelai laki-laki), Tueng Dara Baro (penyambutan mempelai perempuan), Walimatul 'Ursy (resepsi). Dalam setiap tahapan terdapat aturan adat yang dipadukan dengan ajaran Islam.</p>
           <div className="p-4 bg-white rounded-xl border border-dark/5 shadow-sm">
             <span className="text-xs font-bold uppercase text-accent-gold mb-3 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5"/> Nilai</span>
@@ -95,6 +110,9 @@ export default function AdatAcehPage() {
       title: "6. Adat Kelahiran",
       content: (
         <div className="space-y-4">
+          <div className="mb-4 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 bg-[#FAF6EE]/50 flex justify-center">
+            <img src="/images/adat/adatkelahiran.jpg" alt="Adat Kelahiran" className="w-full h-auto max-h-[400px] object-contain" />
+          </div>
           <p><strong>Materi:</strong> Masyarakat Aceh memiliki beberapa tradisi setelah bayi lahir, antara lain: Azan di telinga bayi, Tahnik, Pemberian nama, Aqiqah, Doa bersama keluarga. Tradisi ini bertujuan mendoakan agar anak tumbuh menjadi pribadi yang saleh dan bermanfaat.</p>
           <div className="p-4 bg-white rounded-xl border border-dark/5 shadow-sm">
             <span className="text-xs font-bold uppercase text-accent-gold mb-3 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5"/> Nilai</span>
@@ -111,6 +129,9 @@ export default function AdatAcehPage() {
       title: "7. Adat Bertani (Kenduri Blang)",
       content: (
         <div className="space-y-4">
+          <div className="mb-4 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 bg-[#FAF6EE]/50 flex justify-center">
+            <img src="/images/adat/adatbertani.jpg" alt="Adat Bertani" className="w-full h-auto max-h-[400px] object-contain" />
+          </div>
           <p><strong>Materi:</strong> Sebelum musim tanam dimulai, masyarakat melaksanakan Kenduri Blang. Kegiatan ini dipimpin oleh Keujruen Blang, yaitu pemimpin adat yang mengatur tata kelola sawah dan irigasi. Tujuan Kenduri Blang adalah memohon hasil panen yang baik serta mempererat kerja sama antarpetani.</p>
           <div className="p-4 bg-white rounded-xl border border-dark/5 shadow-sm">
             <span className="text-xs font-bold uppercase text-accent-gold mb-3 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5"/> Nilai</span>
@@ -128,6 +149,9 @@ export default function AdatAcehPage() {
       title: "8. Adat Kelautan (Panglima Laot)",
       content: (
         <div className="space-y-4">
+          <div className="mb-4 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 bg-[#FAF6EE]/50 flex justify-center">
+            <img src="/images/adat/adatkelautan.jpg" alt="Adat Kelautan" className="w-full h-auto max-h-[400px] object-contain" />
+          </div>
           <p><strong>Materi:</strong> Panglima Laot adalah lembaga adat yang mengatur kehidupan nelayan di Aceh. Tugas Panglima Laot antara lain: Menentukan aturan melaut, Menyelesaikan perselisihan antar nelayan, Menjaga kelestarian laut, Menentukan hari pantang melaut pada waktu-waktu tertentu. Lembaga ini telah ada sejak masa Kesultanan Aceh dan masih berfungsi hingga sekarang.</p>
           <div className="p-4 bg-white rounded-xl border border-dark/5 shadow-sm">
             <span className="text-xs font-bold uppercase text-accent-gold mb-3 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5"/> Nilai</span>
@@ -145,6 +169,9 @@ export default function AdatAcehPage() {
       title: "9. Musyawarah Gampong",
       content: (
         <div className="space-y-4">
+          <div className="mb-4 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 bg-[#FAF6EE]/50 flex justify-center">
+            <img src="/images/adat/musyawarah gampong.jpg" alt="Musyawarah Gampong" className="w-full h-auto max-h-[400px] object-contain" />
+          </div>
           <p><strong>Materi:</strong> Setiap persoalan di tingkat desa (gampong) biasanya diselesaikan melalui musyawarah. Musyawarah dipimpin oleh: Keuchik, Tuha Peut, Imum Meunasah, Tokoh masyarakat. Keputusan diambil berdasarkan kesepakatan bersama.</p>
           <div className="p-4 bg-white rounded-xl border border-dark/5 shadow-sm">
             <span className="text-xs font-bold uppercase text-accent-gold mb-3 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5"/> Nilai</span>
@@ -162,6 +189,9 @@ export default function AdatAcehPage() {
       title: "10. Hadih Maja",
       content: (
         <div className="space-y-4">
+          <div className="mb-4 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 bg-[#FAF6EE]/50 flex justify-center">
+            <img src="/images/adat/hadihmaja.jpg" alt="Hadih Maja" className="w-full h-auto max-h-[400px] object-contain" />
+          </div>
           <p><strong>Materi:</strong> Hadih Maja merupakan kumpulan pepatah, petuah, dan ungkapan bijak masyarakat Aceh yang diwariskan secara turun-temurun. Contoh Hadih Maja: <em>Adat bak Poteumeureuhom, Hukom bak Syiah Kuala, Qanun bak Putroe Phang, Reusam bak Laksamana.</em> Maknanya adalah setiap urusan memiliki pemimpin dan aturan masing-masing sehingga kehidupan masyarakat berjalan tertib. Hadih Maja mengajarkan pentingnya kejujuran, kerja keras, menghormati orang tua, menjaga adat, dan menjunjung tinggi nilai-nilai Islam.</p>
           <div className="p-4 bg-white rounded-xl border border-dark/5 shadow-sm">
             <span className="text-xs font-bold uppercase text-accent-gold mb-3 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5"/> Nilai</span>

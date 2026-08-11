@@ -10,6 +10,7 @@ import Link from "next/link";
 export const dances = [
   {
     name: "Tari Saman",
+    image: "/images/tarian/saman.jpg",
     goal: "Peserta didik mampu memahami sejarah, fungsi, dan nilai budaya Tari Saman.",
     desc: "Tari Saman merupakan salah satu tarian tradisional Aceh yang berasal dari Dataran Tinggi Gayo, Kabupaten Gayo Lues. Tarian ini berkembang sebagai media dakwah Islam dan sarana mempererat persatuan masyarakat. Tari Saman dimainkan secara berkelompok dengan posisi duduk berlutut. Para penari menampilkan gerakan yang cepat, kompak, dan serempak sambil menyanyikan syair berbahasa Gayo. Pada tahun 2011, Tari Saman ditetapkan oleh UNESCO sebagai Warisan Budaya Takbenda yang Memerlukan Perlindungan Mendesak.",
     traits: ["Dilakukan secara berkelompok.", "Tanpa alat musik.", "Mengandalkan tepukan tangan, dada, dan paha.", "Gerakan sangat kompak."],
@@ -17,6 +18,7 @@ export const dances = [
   },
   {
     name: "Tari Seudati",
+    image: "/images/tarian/seudati.jpg",
     goal: "Peserta didik mengenal Tari Seudati sebagai tarian kepahlawanan Aceh.",
     desc: "Tari Seudati berasal dari wilayah pesisir Aceh dan berkembang sebagai media dakwah Islam. Nama Seudati diyakini berasal dari kata syahadat, yang mencerminkan kuatnya pengaruh Islam dalam tarian ini. Tarian ini biasanya dibawakan oleh delapan penari laki-laki tanpa menggunakan alat musik. Irama dihasilkan dari hentakan kaki, tepukan tangan, petikan jari, dan lantunan syair.",
     traits: ["Penari laki-laki.", "Gerakan energik.", "Tanpa alat musik.", "Syair berisi nasihat dan dakwah."],
@@ -24,6 +26,7 @@ export const dances = [
   },
   {
     name: "Tari Likok Pulo",
+    image: "/images/tarian/likokpulo.jpg",
     goal: "Peserta didik memahami asal-usul dan fungsi Tari Likok Pulo.",
     desc: "Tari Likok Pulo berasal dari Pulau Aceh. Tarian ini diperkenalkan oleh ulama yang datang dari Timur Tengah sebagai media penyebaran Islam. Likok Pulo dimainkan secara berkelompok dengan gerakan yang dinamis, diiringi syair dan irama rapai.",
     traits: ["Gerakan duduk dan berdiri.", "Menggunakan Rapai.", "Syair Islami."],
@@ -31,6 +34,7 @@ export const dances = [
   },
   {
     name: "Tari Rapai Geleng",
+    image: "/images/tarian/rapai.jpg",
     goal: "Peserta didik memahami keunikan Tari Rapai Geleng.",
     desc: "Tari Rapai Geleng merupakan tarian tradisional Aceh yang memadukan gerakan kepala, badan, dan permainan alat musik rapai. Tarian ini sering ditampilkan pada acara penyambutan tamu dan festival budaya. Gerakan gelengan kepala yang serempak menjadi ciri khas utama tarian ini.",
     traits: ["Menggunakan alat musik rapai.", "Gerakan kepala yang kompak.", "Syair Islami."],
@@ -38,6 +42,7 @@ export const dances = [
   },
   {
     name: "Tari Ranup Lampuan",
+    image: "/images/tarian/ranuplampuan.jpg",
     goal: "Peserta didik memahami makna penyambutan tamu dalam budaya Aceh.",
     desc: "Tari Ranup Lampuan merupakan tarian penyambutan tamu kehormatan. Nama 'Ranup Lampuan' berarti sirih dalam puan (tempat sirih). Dalam tarian ini, penari perempuan membawa puan yang berisi sirih sebagai simbol penghormatan kepada tamu.",
     traits: ["Dibawakan penari perempuan.", "Membawa puan berisi sirih.", "Gerakan lembut."],
@@ -45,6 +50,7 @@ export const dances = [
   },
   {
     name: "Tari Pho",
+    image: "/images/tarian/pho.jpg",
     goal: "Peserta didik mengenal Tari Pho sebagai tarian khas Aceh.",
     desc: "Tari Pho berasal dari Aceh Besar dan dahulu dipentaskan setelah panen sebagai ungkapan rasa syukur. Seiring waktu, tari ini berkembang menjadi hiburan pada berbagai acara adat dan budaya.",
     traits: ["Gerakan lembut.", "Dibawakan oleh perempuan.", "Iringan musik tradisional."],
@@ -52,6 +58,7 @@ export const dances = [
   },
   {
     name: "Tari Laweut",
+    image: "/images/tarian/laweut.jpg",
     goal: "Peserta didik memahami fungsi Tari Laweut dalam kehidupan masyarakat Aceh.",
     desc: "Tari Laweut berasal dari Kabupaten Pidie. Tarian ini dibawakan oleh kelompok perempuan dengan iringan syair yang berisi nasihat, dakwah, dan pujian kepada Allah SWT. Gerakannya sederhana tetapi penuh makna.",
     traits: ["Penari perempuan.", "Syair keagamaan.", "Tanpa alat musik utama."],
@@ -59,6 +66,7 @@ export const dances = [
   },
   {
     name: "Tari Tarek Pukat",
+    image: "/images/tarian/tarekpukat.jpg",
     goal: "Peserta didik memahami kehidupan masyarakat pesisir melalui Tari Tarek Pukat.",
     desc: "Tari Tarek Pukat menggambarkan aktivitas nelayan Aceh saat menarik pukat (jaring ikan) bersama-sama. Tarian ini menunjukkan pentingnya kerja sama dalam mencari nafkah.",
     traits: ["Gerakan menarik jaring.", "Bertema kehidupan nelayan.", "Dibawakan secara berkelompok."],
@@ -66,6 +74,7 @@ export const dances = [
   },
   {
     name: "Tari Bines",
+    image: "/images/tarian/bines.jpg",
     goal: "Peserta didik mengenal Tari Bines sebagai warisan budaya masyarakat Gayo.",
     desc: "Tari Bines berasal dari masyarakat Gayo dan umumnya dibawakan oleh perempuan. Tarian ini sering dipentaskan pada acara adat, penyambutan tamu, dan perayaan budaya. Gerakannya lembut, diiringi syair yang berisi pesan moral dan nasihat.",
     traits: ["Penari perempuan.", "Syair berbahasa Gayo.", "Gerakan anggun."],
@@ -73,6 +82,7 @@ export const dances = [
   },
   {
     name: "Tari Guel",
+    image: "/images/tarian/guel.jpg",
     goal: "Peserta didik memahami sejarah dan makna Tari Guel.",
     desc: "Tari Guel berasal dari masyarakat Gayo dan berakar pada legenda Sengeda dan Bener Merie. Menurut cerita rakyat, Sengeda memperoleh petunjuk melalui mimpi tentang cara menemukan gajah putih yang kemudian dipersembahkan kepada Sultan Aceh. Kisah tersebut menjadi dasar lahirnya Tari Guel. Gerakan Tari Guel menggambarkan proses mencari, menjinakkan, dan mengendalikan gajah. Tarian ini sering dipentaskan dalam acara adat, penyambutan tamu, dan festival budaya.",
     traits: ["Berasal dari tanah Gayo.", "Terinspirasi dari legenda Gajah Putih.", "Gerakan menggambarkan hubungan manusia dengan alam."],
@@ -137,6 +147,17 @@ export default function TarianAcehPage() {
                   }`}
                 >
                   <div className="pt-4 border-t border-dark/5">
+                    
+                    {dance.image && (
+                      <div className="mb-6 w-full rounded-2xl overflow-hidden shadow-sm border border-dark/5 relative group bg-[#FAF6EE]/50 flex justify-center">
+                        <img 
+                          src={dance.image} 
+                          alt={dance.name} 
+                          className="w-full h-auto max-h-[400px] object-contain transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                    )}
+
                     
                     {/* Goal */}
                     <div className="mb-6 bg-accent-gold/10 p-4 rounded-xl border border-accent-gold/20 flex gap-3">
