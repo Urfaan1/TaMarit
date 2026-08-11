@@ -29,6 +29,7 @@ import TesSection from "@/components/sections/TesSection";
 import LatihanSection from "@/components/sections/LatihanSection";
 import SastraBudayaSection from "@/components/sections/SastraBudayaSection";
 import PermainanSection from "@/components/sections/PermainanSection";
+import PustakaDigitalSection from "@/components/sections/PustakaDigitalSection";
 import TentangSection from "@/components/sections/TentangSection";
 
 function getDailyCards() {
@@ -276,6 +277,7 @@ export default function Dashboard() {
               { title: "Uji Kemahiran", desc: "Ukur level bahasa Aceh-mu.", icon: HelpCircle, href: "/#tes" },
               { title: "Latihan", desc: "Materi interaktif & terstruktur.", icon: BookOpenText, href: "/#latihan" },
               { title: "Budaya", desc: "Eksplorasi adat & sastra.", icon: BookOpen, href: "/#sastra-budaya" },
+              { title: "Pustaka Digital", desc: "Koleksi buku cerita anak.", icon: BookOpen, href: "/#pustaka-digital" },
               { title: "Permainan Edukasi", desc: "Belajar lewat permainan.", icon: Gamepad2, href: "/#permainan" },
             ].map((item, idx) => (
               <Link key={idx} href={item.href} className="bg-white/80 backdrop-blur-md rounded-[1.5rem] md:rounded-3xl p-4 sm:p-5 md:p-8 flex flex-col gap-3 md:gap-4 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 group">
@@ -337,6 +339,9 @@ export default function Dashboard() {
       </div>
       <div id="sastra-budaya">
         <SastraBudayaSection />
+      </div>
+      <div id="pustaka-digital">
+        <PustakaDigitalSection />
       </div>
       <div id="permainan">
         <PermainanSection />

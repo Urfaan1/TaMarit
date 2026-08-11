@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
-import { Mic, Headphones, BookA, Volume2, Activity, Keyboard } from "lucide-react";
+import { Mic, Headphones, BookA, Volume2, Activity, Keyboard, PlayCircle } from "lucide-react";
 
 export default function LatihanPage() {
   const categories = [
@@ -37,6 +37,12 @@ export default function LatihanPage() {
       description: "Latih ketangkasan dan akurasi mengeja serta mengetik kata dalam bahasa Aceh.",
       icon: <Keyboard className="w-6 h-6 text-primary" />,
       href: "/latihan/menulis"
+    },
+    {
+      title: "Video Edukasi",
+      description: "Tonton berbagai tayangan pembelajaran bahasa dan budaya Aceh yang menarik dari YouTube.",
+      icon: <PlayCircle className="w-6 h-6 text-primary" />,
+      href: "/latihan/video"
     }
   ];
 

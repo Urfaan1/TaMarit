@@ -15,14 +15,24 @@ type ImageQuiz = { id: number; imageUrl: string; correctAnswer: string; hint: st
 const IMAGE_DATABASE: ImageQuiz[] = [
   { id: 1, imageUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800", correctAnswer: "Rumoh", hint: "Tempat tinggal / Rumah" },
   { id: 2, imageUrl: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=800", correctAnswer: "Kupi", hint: "Minuman hitam berkafein / Kopi" },
-  { id: 3, imageUrl: "https://images.unsplash.com/photo-1490750967868-88cb44cb2753?auto=format&fit=crop&q=80&w=800", correctAnswer: "Bungong", hint: "Tanaman yang indah dipandang / Bunga" },
+  { id: 3, imageUrl: "/images/melati.png", correctAnswer: "Bungong", hint: "Tanaman yang indah dipandang / Bunga" },
   { id: 4, imageUrl: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&q=80&w=800", correctAnswer: "Gajah", hint: "Hewan berbelalai panjang / Gajah" },
-  { id: 5, imageUrl: "https://images.unsplash.com/photo-1528659133446-444747ebaf05?auto=format&fit=crop&q=80&w=800", correctAnswer: "U", hint: "Buah tropis yang airnya segar / Kelapa" },
+  { id: 5, imageUrl: "/images/kelapa.png", correctAnswer: "U", hint: "Buah tropis yang airnya segar / Kelapa" },
   { id: 6, imageUrl: "https://images.unsplash.com/photo-1524704796725-9fc3044a58b2?auto=format&fit=crop&q=80&w=800", correctAnswer: "Eungkot", hint: "Hewan yang hidup di air / Ikan" },
   { id: 7, imageUrl: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800", correctAnswer: "Gle", hint: "Dataran tinggi / Gunung" },
   { id: 8, imageUrl: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=800", correctAnswer: "Laot", hint: "Perairan asin yang luas / Laut" },
   { id: 9, imageUrl: "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&q=80&w=800", correctAnswer: "Cicem", hint: "Hewan bersayap yang bisa terbang / Burung" },
   { id: 10, imageUrl: "https://images.unsplash.com/photo-1532767153582-b1a0e5145009?auto=format&fit=crop&q=80&w=800", correctAnswer: "Buleuen", hint: "Satelit alami bumi di malam hari / Bulan" },
+  { id: 11, imageUrl: "/images/matahari.png", correctAnswer: "Matauroe", hint: "Pusat tata surya yang terbit pagi hari / Matahari" },
+  { id: 12, imageUrl: "/images/bintang.png", correctAnswer: "Bintang", hint: "Benda langit bercahaya di malam hari / Bintang" },
+  { id: 13, imageUrl: "/images/api.png", correctAnswer: "Apui", hint: "Sesuatu yang panas dan menyala / Api" },
+  { id: 14, imageUrl: "/images/air.png", correctAnswer: "Ie", hint: "Zat cair yang penting untuk kehidupan / Air" },
+  { id: 15, imageUrl: "/images/daun.png", correctAnswer: "Oen", hint: "Bagian pohon yang berwarna hijau / Daun" },
+  { id: 16, imageUrl: "/images/buah.png", correctAnswer: "Boh kayee", hint: "Hasil pohon yang bisa dimakan / Buah" },
+  { id: 17, imageUrl: "https://loremflickr.com/800/800/cat", correctAnswer: "Mie", hint: "Hewan peliharaan yang mengeong / Kucing" },
+  { id: 18, imageUrl: "/images/sapi.png", correctAnswer: "Leumo", hint: "Hewan ternak penghasil susu / Sapi" },
+  { id: 19, imageUrl: "/images/kambing.png", correctAnswer: "Kameng", hint: "Hewan ternak pemakan rumput / Kambing" },
+  { id: 20, imageUrl: "/images/ayam.png", correctAnswer: "Manok", hint: "Hewan unggas yang berkokok / Ayam" },
 ];
 
 export default function TebakGambarPage() {
@@ -106,10 +116,10 @@ export default function TebakGambarPage() {
 
         {gameState !== "finished" && (
           <div className="mb-8">
-            <Progress 
-              value={progressValue} 
-              variant="green" 
-              label={`Gambar ${currentIndex + 1} dari ${questions.length}`} 
+            <Progress
+              value={progressValue}
+              variant="green"
+              label={`Gambar ${currentIndex + 1} dari ${questions.length}`}
             />
           </div>
         )}
@@ -162,7 +172,7 @@ export default function TebakGambarPage() {
                     className="text-center text-xl font-semibold"
                   />
                 </div>
-                
+
                 {showHint && (
                   <div className="bg-accent-green/10 p-4 rounded-xl border border-accent-green/20 flex items-start gap-3 text-dark/80">
                     <HelpCircle className="w-5 h-5 text-accent-green flex-shrink-0 mt-0.5" />
@@ -173,9 +183,9 @@ export default function TebakGambarPage() {
                 )}
 
                 <div className="flex justify-between items-center mt-2">
-                  <Button 
-                    type="button" 
-                    variant="ghost" 
+                  <Button
+                    type="button"
+                    variant="ghost"
                     size="sm"
                     className="text-dark/50 hover:text-accent-green"
                     onClick={() => setShowHint(true)}
@@ -183,9 +193,9 @@ export default function TebakGambarPage() {
                   >
                     Butuh petunjuk?
                   </Button>
-                  <Button 
-                    type="submit" 
-                    variant="green" 
+                  <Button
+                    type="submit"
+                    variant="green"
                     disabled={!userInput.trim()}
                   >
                     Jawab

@@ -8,9 +8,10 @@ import { Button } from "@/components/ui/Button";
 import { ArrowLeft, RefreshCw, Trophy, ImageIcon, Upload } from "lucide-react";
 
 const IMAGE_OPTIONS = [
-  { id: 1, url: "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?auto=format&fit=crop&q=80&w=800", name: "Pantai & Tebing" },
-  { id: 2, url: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800", name: "Makanan Tradisional" },
-  { id: 3, url: "https://images.unsplash.com/photo-1528659133446-444747ebaf05?auto=format&fit=crop&q=80&w=800", name: "Pemandangan Alam" },
+  { id: 1, url: "/images/mesjid raya.jpg", name: "Masjid Raya" },
+  { id: 2, url: "/images/tarisaman.jpg", name: "Tari Saman" },
+  { id: 3, url: "/images/pintoaceh.jpg", name: "Pinto Aceh" },
+  { id: 4, url: "/images/miaceh.jpg", name: "Mi Aceh" },
 ];
 const GRID_SIZE = 3;
 const TOTAL_TILES = GRID_SIZE * GRID_SIZE;
@@ -168,7 +169,7 @@ export default function SusunGambarPage() {
                         ${isSolved ? "opacity-100 ring-0 shadow-none rounded-none" : ""}
                       `}
                       style={{
-                        backgroundImage: isEmpty && !isSolved ? "none" : `url(${selectedImage.url})`,
+                        backgroundImage: isEmpty && !isSolved ? "none" : `url('${selectedImage.url}')`,
                         backgroundSize: `${GRID_SIZE * 100}% ${GRID_SIZE * 100}%`,
                         backgroundPosition: `${bgPosX}% ${bgPosY}%`,
                         // Remove gap visually when solved

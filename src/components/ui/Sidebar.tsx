@@ -12,6 +12,7 @@ import {
   Info,
   User,
   Menu,
+  Library,
   X
 } from "lucide-react";
 import { BookOpenText } from "lucide-react"; // Using this as the logo based on the image (a book icon)
@@ -40,7 +41,7 @@ export function Sidebar() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    const sections = ["tes", "latihan", "sastra-budaya", "permainan", "tentang"];
+    const sections = ["tes", "latihan", "sastra-budaya", "pustaka-digital", "permainan", "tentang"];
     let hasSections = false;
     
     sections.forEach((section) => {
@@ -76,6 +77,7 @@ export function Sidebar() {
     { href: "/#tes", label: "Uji Kemahiran", icon: <GraduationCap className="w-5 h-5" /> },
     { href: "/#latihan", label: "Latihan", icon: <Book className="w-5 h-5" /> },
     { href: "/#sastra-budaya", label: "Sastra", icon: <BookOpen className="w-5 h-5" /> },
+    { href: "/#pustaka-digital", label: "Pustaka Digital", icon: <Library className="w-5 h-5" /> },
     { href: "/#permainan", label: "Permainan", icon: <Gamepad2 className="w-5 h-5" /> },
     { href: "/#tentang", label: "Tentang Kami", icon: <Info className="w-5 h-5" /> },
   ];
