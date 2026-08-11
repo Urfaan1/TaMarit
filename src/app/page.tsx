@@ -31,6 +31,7 @@ import SastraBudayaSection from "@/components/sections/SastraBudayaSection";
 import PermainanSection from "@/components/sections/PermainanSection";
 import PustakaDigitalSection from "@/components/sections/PustakaDigitalSection";
 import TentangSection from "@/components/sections/TentangSection";
+import { KamusSection } from "@/components/sections/KamusSection";
 
 function getDailyCards() {
   const allVocab = vocabularyData.flatMap(cat => cat.words.map(w => ({
@@ -272,12 +273,13 @@ export default function Dashboard() {
             <div className="w-1 h-8 bg-accent-gold rounded-full"></div>
             <h2 className="text-2xl font-serif font-bold text-dark">Fitur Utama</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {[
               { title: "Uji Kemahiran", desc: "Ukur level bahasa Aceh-mu.", icon: HelpCircle, href: "/#tes" },
               { title: "Latihan", desc: "Materi interaktif & terstruktur.", icon: BookOpenText, href: "/#latihan" },
               { title: "Budaya", desc: "Eksplorasi adat & sastra.", icon: BookOpen, href: "/#sastra-budaya" },
               { title: "Pustaka Digital", desc: "Koleksi buku cerita anak.", icon: BookOpen, href: "/#pustaka-digital" },
+              { title: "Kamus", desc: "Koleksi kamus bahasa Aceh.", icon: BookOpenText, href: "/#kamus" },
               { title: "Permainan Edukasi", desc: "Belajar lewat permainan.", icon: Gamepad2, href: "/#permainan" },
             ].map((item, idx) => (
               <Link key={idx} href={item.href} className="bg-white/80 backdrop-blur-md rounded-[1.5rem] md:rounded-3xl p-4 sm:p-5 md:p-8 flex flex-col gap-3 md:gap-4 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 group">
@@ -343,6 +345,7 @@ export default function Dashboard() {
       <div id="pustaka-digital">
         <PustakaDigitalSection />
       </div>
+      <KamusSection id="kamus" />
       <div id="permainan">
         <PermainanSection />
       </div>

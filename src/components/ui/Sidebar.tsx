@@ -41,7 +41,7 @@ export function Sidebar() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    const sections = ["tes", "latihan", "sastra-budaya", "pustaka-digital", "permainan", "tentang"];
+    const sections = ["tes", "latihan", "sastra-budaya", "pustaka-digital", "kamus", "permainan", "tentang"];
     let hasSections = false;
     
     sections.forEach((section) => {
@@ -78,6 +78,7 @@ export function Sidebar() {
     { href: "/#latihan", label: "Latihan", icon: <Book className="w-5 h-5" /> },
     { href: "/#sastra-budaya", label: "Sastra", icon: <BookOpen className="w-5 h-5" /> },
     { href: "/#pustaka-digital", label: "Pustaka Digital", icon: <Library className="w-5 h-5" /> },
+    { href: "/#kamus", label: "Kamus", icon: <BookOpenText className="w-5 h-5" /> },
     { href: "/#permainan", label: "Permainan", icon: <Gamepad2 className="w-5 h-5" /> },
     { href: "/#tentang", label: "Tentang Kami", icon: <Info className="w-5 h-5" /> },
   ];
@@ -157,6 +158,8 @@ export function Sidebar() {
                 <Link
                   key={link.label}
                   href={link.href}
+                  target={(link as any).external ? "_blank" : undefined}
+                  rel={(link as any).external ? "noopener noreferrer" : undefined}
                   onClick={() => setIsOpen(false)}
                   className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 ${
                     isActive 
