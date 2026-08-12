@@ -73,32 +73,33 @@ export default function MendengarkanPage() {
               </div>
             </Card>
 
-            {/* Quiz Options */}
-            <h4 className="font-serif font-bold text-xl text-dark mt-6 mb-2">Kuis Mendengarkan</h4>
-            {listeningData.map((exercise) => (
+            {/* YouTube Video Options */}
+            <h4 className="font-serif font-bold text-xl text-dark mt-6 mb-4">Video & Lagu Aceh</h4>
+            {[
+              { title: "Adat", id: "ZgZfB8efJUA" },
+              { title: "Pasang Jabet", id: "T60q2CRIIpY" },
+              { title: "Rihon Meulambong", id: "VGDVffzMehY" }
+            ].map((video) => (
               <Card 
-                key={exercise.id} 
-                hoverable 
-                className="p-6 bg-white border border-dark/5 flex flex-col md:flex-row items-center gap-6"
+                key={video.id} 
+                hoverable={false} 
+                className="p-6 bg-white border border-dark/5 flex flex-col gap-4 overflow-hidden"
               >
-                <div className="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-dark/50">
-                  <Headphones className="w-8 h-8" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 shrink-0">
+                    <Play className="w-5 h-5 ml-0.5" />
+                  </div>
+                  <h3 className="font-serif text-lg font-bold text-dark">{video.title}</h3>
                 </div>
-                <div className="flex-grow text-center md:text-left">
-                  <h3 className="font-serif text-xl font-bold text-dark mb-2">{exercise.title}</h3>
-                  <p className="text-dark/70 text-sm">{exercise.description}</p>
-                </div>
-                <div className="flex-shrink-0 w-full md:w-auto">
-                  <Button 
-                    variant="outline" 
-                    className="w-full md:w-auto"
-                    onClick={() => {
-                      setActiveExercise(exercise);
-                      setView('quiz');
-                    }}
-                  >
-                    Mulai Kuis
-                  </Button>
+                <div className="relative w-full overflow-hidden rounded-xl bg-dark/5" style={{ paddingBottom: '56.25%' }}>
+                  <iframe 
+                    className="absolute top-0 left-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${video.id}`}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
                 </div>
               </Card>
             ))}
