@@ -61,10 +61,10 @@ function getDailyCards() {
   const getRandom = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)];
   
   const dailyCards = [
-    getRandom(allVocab),
-    getRandom(allHadihMaja),
-    getRandom(allDances),
-    getRandom(allVocab),
+    { ...getRandom(allVocab), uid: 'card-1' },
+    { ...getRandom(allHadihMaja), uid: 'card-2' },
+    { ...getRandom(allDances), uid: 'card-3' },
+    { ...getRandom(allVocab), uid: 'card-4' },
   ];
 
   for (let i = dailyCards.length - 1; i > 0; i--) {
@@ -236,7 +236,7 @@ export default function Dashboard() {
                 
                 return (
                   <div 
-                    key={card.title + idx}
+                    key={card.uid}
                     className={`absolute top-0 left-0 w-full h-full rounded-[1.5rem] md:rounded-[2rem] p-5 sm:p-6 md:p-8 shadow-xl transition-all duration-500 ease-in-out border border-dark/5 flex flex-col justify-center ${card.color}`}
                     style={{
                       transform: `translateY(${translateY}px) scale(${scale})`,
