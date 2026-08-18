@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     title: "TaMarit - Pembelajaran Bahasa, Sastra, & Budaya Aceh",
     description: "Platform digital premium untuk mempelajari bahasa, sastra, dan budaya Aceh dengan warisan maritim dan kearifan Serambi Mekkah.",
   },
+  verification: {
+    google: "aoeY3VR5xfDQzCFtps3WNNhzT4MdzwoUK1skY8srR3s",
+  },
 };
 
 export default function RootLayout({
