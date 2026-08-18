@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { PintoAceh, BungongJeumpa } from "@/components/ui/Motifs";
+import { FiturUtamaShared } from "@/components/sections/FiturUtamaShared";
 import { 
   BookOpen, 
   MessageSquare, 
@@ -317,61 +318,7 @@ export default function TentangPage() {
       </section>
 
       {/* 7. Fitur Utama Tamarit */}
-      <section className="py-24 px-6 bg-[#082b27] relative overflow-hidden">
-        {/* Background Decorative Elements */}
-        <div className="absolute top-0 right-0 opacity-10 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
-          <BungongJeumpa size={500} />
-        </div>
-        <div className="absolute bottom-0 left-0 opacity-5 pointer-events-none transform -translate-x-1/4 translate-y-1/4">
-          <PintoAceh size={400} />
-        </div>
-        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5 mix-blend-overlay pointer-events-none"></div>
-
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-20">
-            <Badge variant="gold" className="w-fit mb-4 mx-auto border-white/10 bg-white/5 text-accent-gold backdrop-blur-md">
-              Eksplorasi Fitur
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6 tracking-wide">Fitur Utama <span className="text-accent-gold">TaMarit</span></h2>
-            <p className="text-white/70 max-w-2xl mx-auto text-lg leading-relaxed">Kami merancang berbagai modul dan alat interaktif dengan balutan teknologi modern untuk memastikan proses belajar bahasa Aceh menjadi menyenangkan dan efektif.</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: BookOpen, title: "Kamus Bahasa Aceh", desc: "Pencarian kata dua arah (Aceh-Indonesia) dengan pelafalan audio untuk melatih pengucapan yang tepat." },
-              { icon: Layers, title: "Kosakata Tematik", desc: "Kumpulan kata yang dikelompokkan berdasarkan tema harian untuk memudahkan proses menghafal." },
-              { icon: MessageSquare, title: "Simulasi Percakapan", desc: "Modul dialog interaktif berbagai situasi kehidupan nyata, lengkap dengan terjemahan bahasa." },
-              { icon: Target, title: "Panduan Tata Bahasa", desc: "Struktur, penggunaan imbuhan, dan kaidah bahasa Aceh yang disusun secara sistematis." },
-              { icon: Users, title: "Sastra & Budaya", desc: "Mengenal lebih dalam kekayaan adat, sejarah, kesenian, dan kearifan lokal masyarakat Aceh." },
-              { icon: HelpCircle, title: "Kuis Interaktif", desc: "Latihan soal terstruktur yang menyenangkan untuk menguji tingkat pemahaman Anda." },
-              { icon: Gamepad2, title: "Permainan Edukasi", desc: "Belajar sambil bermain! Dapatkan poin dan penghargaan eksklusif untuk setiap pencapaian yang diselesaikan.", isWide: true },
-            ].map((fitur, idx) => (
-              <div 
-                key={idx} 
-                className={`group relative rounded-[2rem] overflow-hidden ${fitur.isWide ? "sm:col-span-2 lg:col-span-2" : ""}`}
-              >
-                {/* Animated gradient border */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent group-hover:from-accent-gold/40 group-hover:to-primary/40 transition-colors duration-500 rounded-[2rem] p-[1px]">
-                  <div className="absolute inset-[1px] bg-gradient-to-br from-[#0c3e38] to-[#082b27] backdrop-blur-xl rounded-[2rem] -z-10"></div>
-                </div>
-
-                <div className="relative h-full p-8 flex flex-col items-start z-10 transition-transform duration-500 group-hover:-translate-y-2">
-                  {/* Decorative background glow */}
-                  <div className="absolute -right-10 -top-10 w-40 h-40 bg-accent-gold/10 rounded-full blur-3xl group-hover:bg-accent-gold/20 transition-colors duration-500 pointer-events-none"></div>
-
-                  <div className="w-14 h-14 bg-gradient-to-br from-accent-gold to-yellow-600 rounded-2xl flex items-center justify-center text-dark mb-6 shadow-lg shadow-accent-gold/20 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-                    <fitur.icon className="w-7 h-7 relative z-10" />
-                  </div>
-                  
-                  <h4 className="font-serif font-bold text-white text-xl mb-3 group-hover:text-accent-gold transition-colors">{fitur.title}</h4>
-                  <p className="text-white/60 text-sm leading-relaxed">{fitur.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FiturUtamaShared />
 
       {/* 8. Siapa yang Dapat Menggunakan & 11. Nilai Tamarit */}
       <section className="py-20 px-6 bg-[#F9FAFB]">

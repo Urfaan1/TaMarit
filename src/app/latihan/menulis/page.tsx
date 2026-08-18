@@ -8,19 +8,30 @@ import { Input } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
 import { ArrowLeft, CheckCircle2, XCircle, Keyboard, RotateCcw, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { vocabularyData } from "../kosa-kata/page";
+const SENTENCES_DATABASE = [
+  { target: "Loen pajoh bu", translation: "Saya makan nasi" },
+  { target: "Peue haba uroe nyoe?", translation: "Apa kabar hari ini?" },
+  { target: "Gata jak u keude", translation: "Kamu pergi ke pasar" },
+  { target: "Loen galak that keu gata", translation: "Saya sangat menyukaimu" },
+  { target: "Jinoe loen teungoh meurunoe basa Aceh", translation: "Sekarang saya sedang belajar bahasa Aceh" },
+  { target: "Uroe nyoe cuaca that jroh", translation: "Hari ini cuaca sangat bagus" },
+  { target: "Singoh loen jak u banda", translation: "Besok saya pergi ke kota" },
+  { target: "Peue nyang teungoh gata peubuet?", translation: "Apa yang sedang kamu lakukan?" },
+  { target: "Neu piyoh siat", translation: "Silakan istirahat sebentar" },
+  { target: "Bek tuwo pajoh bu", translation: "Jangan lupa makan nasi" },
+  { target: "Tanyoe mandum syedara", translation: "Kita semua bersaudara" },
+  { target: "Loen neuk woe u gampong", translation: "Saya ingin pulang ke kampung" }
+];
 
 function getRandomChallenges(count = 10) {
-  const allWords = vocabularyData.flatMap(cat => 
-    cat.words.map(w => ({ target: w.aceh, translation: w.id }))
-  );
+  const allSentences = [...SENTENCES_DATABASE];
   
-  for (let i = allWords.length - 1; i > 0; i--) {
+  for (let i = allSentences.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [allWords[i], allWords[j]] = [allWords[j], allWords[i]];
+    [allSentences[i], allSentences[j]] = [allSentences[j], allSentences[i]];
   }
   
-  return allWords.slice(0, count);
+  return allSentences.slice(0, count);
 }
 
 export default function MenulisPage() {

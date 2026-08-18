@@ -20,67 +20,19 @@ import { BookOpenText } from "lucide-react"; // Using this as the logo based on 
 export function Sidebar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [activeHash, setActiveHash] = useState("/");
 
-  useEffect(() => {
-    if (pathname !== "/") return;
 
-    const observerOptions = {
-      root: null, // use the viewport
-      rootMargin: "-20% 0px -60% 0px", // Trigger when section is in the upper part of the viewport
-      threshold: 0,
-    };
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveHash(`/#${entry.target.id}`);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    const sections = ["tes", "latihan", "sastra-budaya", "pustaka-digital", "kamus", "permainan", "tentang"];
-    let hasSections = false;
-    
-    sections.forEach((section) => {
-      const el = document.getElementById(section);
-      if (el) {
-        observer.observe(el);
-        hasSections = true;
-      }
-    });
-    
-    // If we are at the very top, set active to /
-    const handleMainScroll = () => {
-      // Find the scrollable container or window
-      const container = document.getElementById("main-scroll-container") || window;
-      const scrollTop = container === window ? window.scrollY : (container as HTMLElement).scrollTop;
-      
-      if (scrollTop < 100) {
-        setActiveHash("/");
-      }
-    };
-    
-    const container = document.getElementById("main-scroll-container") || window;
-    container.addEventListener("scroll", handleMainScroll);
-
-    return () => {
-      observer.disconnect();
-      container.removeEventListener("scroll", handleMainScroll);
-    };
-  }, [pathname]);
 
   const navLinks = [
     { href: "/", label: "Beranda", icon: <Home className="w-5 h-5" /> },
-    { href: "/#tes", label: "Uji Kemahiran", icon: <GraduationCap className="w-5 h-5" /> },
-    { href: "/#latihan", label: "Latihan", icon: <Book className="w-5 h-5" /> },
-    { href: "/#sastra-budaya", label: "Sastra", icon: <BookOpen className="w-5 h-5" /> },
-    { href: "/#pustaka-digital", label: "Pustaka Digital", icon: <Library className="w-5 h-5" /> },
-    { href: "/#kamus", label: "Kamus", icon: <BookOpenText className="w-5 h-5" /> },
-    { href: "/#permainan", label: "Permainan", icon: <Gamepad2 className="w-5 h-5" /> },
-    { href: "/#tentang", label: "Tentang Kami", icon: <Info className="w-5 h-5" /> },
+    { href: "/tes", label: "Uji Kemahiran", icon: <GraduationCap className="w-5 h-5" /> },
+    { href: "/latihan", label: "Latihan", icon: <Book className="w-5 h-5" /> },
+    { href: "/sastra-budaya", label: "Sastra dan Budaya", icon: <BookOpen className="w-5 h-5" /> },
+    { href: "/pustaka-digital", label: "Pustaka Digital", icon: <Library className="w-5 h-5" /> },
+    { href: "/kamus", label: "Kamus", icon: <BookOpenText className="w-5 h-5" /> },
+    { href: "/permainan", label: "Permainan", icon: <Gamepad2 className="w-5 h-5" /> },
+    { href: "/tentang", label: "Tentang Kami", icon: <Info className="w-5 h-5" /> },
   ];
 
   return (
@@ -126,7 +78,7 @@ export function Sidebar() {
                 TaMarit
               </span>
               <span className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">
-                Pembelajaran Bahasa
+                Pembelajaran Bahasa Aceh
               </span>
             </div>
           </Link>
@@ -144,14 +96,10 @@ export function Sidebar() {
             {navLinks.map((link) => {
               // Highlight based on scroll position if on home page, or pathname matching if on a sub-page
               let isActive = false;
-              if (pathname === "/") {
-                isActive = activeHash === link.href;
+              if (link.href === "/") {
+                isActive = pathname === "/";
               } else {
-                // If on a sub-page, highlight the corresponding main category
-                // For example, /latihan/berbicara should highlight /#latihan
-                if (link.href !== "/" && pathname.startsWith(link.href.replace("/#", "/"))) {
-                  isActive = true;
-                }
+                isActive = pathname.startsWith(link.href);
               }
               
               return (

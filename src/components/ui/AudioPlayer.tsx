@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import { VolumeX, Volume1, Music, SkipForward, SlidersHorizontal } from 'lucide-react';
 
 const playlist = [
@@ -15,7 +16,16 @@ export function AudioPlayer() {
   const [volume, setVolume] = useState(0.25); // Default volume 25%
   const [isHovered, setIsHovered] = useState(false);
   
+  const pathname = usePathname();
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Auto-pause ketika masuk ke halaman latihan mendengarkan
+  useEffect(() => {
+    if (pathname === '/latihan/mendengarkan' && isPlaying && audioRef.current) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+  }, [pathname, isPlaying]);
 
   // Inisialisasi awal & Autoplay
   useEffect(() => {

@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 
 export default function TesPage() {
   const router = useRouter();
-  const [quizStarted, setQuizStarted] = useState(true);
+  const [quizStarted, setQuizStarted] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [showResultModal, setShowResultModal] = useState(false);
@@ -111,9 +111,15 @@ export default function TesPage() {
 
       {/* Visual Header */}
       <div className="absolute top-6 left-6 z-20">
-        <Button variant="ghost" onClick={() => router.push("/#tes")} className="text-dark/60 hover:text-dark font-bold bg-white/50 backdrop-blur-sm shadow-sm rounded-full px-4 py-2">
+        <Button variant="ghost" onClick={() => {
+          if (quizStarted) {
+            setQuizStarted(false);
+          } else {
+            router.push("/");
+          }
+        }} className="text-dark/60 hover:text-dark font-bold bg-white/50 backdrop-blur-sm shadow-sm rounded-full px-4 py-2">
           <ChevronLeft className="w-5 h-5 mr-1" />
-          Kembali ke Beranda
+          {quizStarted ? "Kembali ke Menu Awal" : "Kembali ke Beranda"}
         </Button>
       </div>
       <div className="relative pt-16 pb-8 px-6 text-center max-w-4xl mx-auto z-10">
@@ -132,7 +138,43 @@ export default function TesPage() {
       </div>
 
       <div className="max-w-4xl mx-auto px-6 pb-24 relative z-10">
-        {isBetweenSessions ? (
+        {!quizStarted ? (
+          <div className="animate-in fade-in slide-in-from-bottom-8 duration-700">
+            <Card hoverable={false} className="p-8 md:p-12 bg-white/80 backdrop-blur-sm border-2 border-primary/10 shadow-xl overflow-hidden relative">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent-gold to-primary" />
+              
+              <div className="flex flex-col items-center text-center">
+                <h3 className="font-serif text-3xl font-bold text-dark mb-6">
+                  Mulai Ujian Kemahiran
+                </h3>
+                
+                <div className="flex flex-wrap justify-center gap-4 mb-8">
+                  <div className="flex items-center gap-2 px-4 py-2 bg-cream rounded-full border border-dark/5 shadow-sm">
+                    <Target className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-dark/80">Format UKBI</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-cream rounded-full border border-dark/5 shadow-sm">
+                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <span className="text-sm font-semibold text-dark/80">40 Pertanyaan Adaptif</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-cream rounded-full border border-dark/5 shadow-sm">
+                    <Clock className="w-4 h-4 text-accent-gold" />
+                    <span className="text-sm font-semibold text-dark/80">Tidak Dibatasi Waktu</span>
+                  </div>
+                </div>
+
+                <p className="text-base text-dark/70 mb-10 max-w-xl mx-auto leading-relaxed">
+                  Tes ini dirancang menyerupai format UKBI yang khusus menguji kebahasaan Aceh secara umum. Hasil evaluasi beserta predikat kemahiran Anda akan ditampilkan setelah menyelesaikan seluruh pertanyaan.
+                </p>
+
+                <Button variant="primary" size="lg" className="w-full md:w-auto md:min-w-[280px] shadow-lg shadow-primary/20 hover:shadow-primary/30 group text-lg" onClick={() => setQuizStarted(true)}>
+                  Mulai Ujian Sekarang
+                  <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+            </Card>
+          </div>
+        ) : isBetweenSessions ? (
           /* Intermission Screen */
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-700">
             <Card hoverable={false} className="p-8 md:p-12 bg-white/80 backdrop-blur-sm border-2 border-primary/10 shadow-xl overflow-hidden relative text-center">
@@ -239,7 +281,7 @@ export default function TesPage() {
 
             <div className="flex justify-center mt-4">
               <button
-                onClick={handleReset}
+                onClick={() => setQuizStarted(false)}
                 className="flex items-center gap-2 text-sm font-bold text-dark/40 hover:text-red-500 transition-colors"
               >
                 <RotateCcw className="w-4 h-4" /> Batalkan Ujian

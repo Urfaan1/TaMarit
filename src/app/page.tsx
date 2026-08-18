@@ -25,13 +25,7 @@ import { vocabularyData } from "./latihan/kosa-kata/page";
 import { hadihMajaList } from "./sastra-budaya/hadih-maja/page";
 import { dances } from "./sastra-budaya/tarian-aceh/page";
 
-import TesSection from "@/components/sections/TesSection";
-import LatihanSection from "@/components/sections/LatihanSection";
-import SastraBudayaSection from "@/components/sections/SastraBudayaSection";
-import PermainanSection from "@/components/sections/PermainanSection";
-import PustakaDigitalSection from "@/components/sections/PustakaDigitalSection";
-import TentangSection from "@/components/sections/TentangSection";
-import { KamusSection } from "@/components/sections/KamusSection";
+import { FiturUtamaShared } from "@/components/sections/FiturUtamaShared";
 
 function getDailyCards() {
   const allVocab = vocabularyData.flatMap(cat => cat.words.map(w => ({
@@ -202,10 +196,10 @@ export default function Dashboard() {
               TaMarit
             </h1>
             <p className="text-lg md:text-xl text-dark/70 leading-relaxed font-medium">
-              Platform digital interaktif untuk mengeksplorasi keindahan bahasa, sastra, dan kekayaan budaya Serambi Mekkah.
+              Platform digital interaktif untuk mempelajari bahasa Aceh, serta mengeksplorasi keindahan sastra dan kekayaan budaya Serambi Mekkah.
             </p>
             <div className="mt-4 flex flex-wrap gap-4 items-center">
-              <Link href="/#latihan" className="bg-primary text-white font-semibold px-6 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+              <Link href="/latihan" className="bg-primary text-white font-semibold px-6 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
                 Mulai Belajar
               </Link>
               {visitorCount !== null && (
@@ -268,32 +262,7 @@ export default function Dashboard() {
         </section>
 
         {/* Fitur Utama */}
-        <section className="mt-10">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-1 h-8 bg-accent-gold rounded-full"></div>
-            <h2 className="text-2xl font-serif font-bold text-dark">Fitur Utama</h2>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {[
-              { title: "Uji Kemahiran", desc: "Ukur level bahasa Aceh-mu.", icon: HelpCircle, href: "/#tes" },
-              { title: "Latihan", desc: "Materi interaktif & terstruktur.", icon: BookOpenText, href: "/#latihan" },
-              { title: "Budaya", desc: "Eksplorasi adat & sastra.", icon: BookOpen, href: "/#sastra-budaya" },
-              { title: "Pustaka Digital", desc: "Koleksi buku cerita anak.", icon: BookOpen, href: "/#pustaka-digital" },
-              { title: "Kamus", desc: "Koleksi kamus bahasa Aceh.", icon: BookOpenText, href: "/#kamus" },
-              { title: "Permainan Edukasi", desc: "Belajar lewat permainan.", icon: Gamepad2, href: "/#permainan" },
-            ].map((item, idx) => (
-              <Link key={idx} href={item.href} className="bg-white/80 backdrop-blur-md rounded-[1.5rem] md:rounded-3xl p-4 sm:p-5 md:p-8 flex flex-col gap-3 md:gap-4 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 group">
-                <div className="bg-gray-50 p-3 md:p-4 rounded-xl md:rounded-2xl w-fit group-hover:bg-primary/10 transition-colors">
-                  <item.icon className="w-6 h-6 md:w-8 md:h-8 text-dark/70 group-hover:text-primary transition-colors" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-base md:text-lg text-dark/90 group-hover:text-primary mb-0.5 md:mb-1">{item.title}</h3>
-                  <p className="text-[10px] md:text-xs text-dark/50 leading-relaxed line-clamp-2 md:line-clamp-none">{item.desc}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
+        <FiturUtamaShared className="rounded-[2.5rem] md:rounded-[3rem] shadow-2xl" />
 
         {/* Trivia / Tahukah Anda */}
         <section className="mt-12 mb-8">
@@ -333,25 +302,7 @@ export default function Dashboard() {
 
       </div>
 
-      <div id="tes">
-        <TesSection />
-      </div>
-      <div id="latihan">
-        <LatihanSection />
-      </div>
-      <div id="sastra-budaya">
-        <SastraBudayaSection />
-      </div>
-      <div id="pustaka-digital">
-        <PustakaDigitalSection />
-      </div>
-      <KamusSection id="kamus" />
-      <div id="permainan">
-        <PermainanSection />
-      </div>
-      <div id="tentang">
-        <TentangSection />
-      </div>
+
 
       {/* Modal Penjelasan Rinci */}
       {selectedTrivia && (
