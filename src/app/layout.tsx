@@ -16,8 +16,26 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "TaMarit - Pembelajaran Bahasa, Sastra, & Budaya Aceh",
+  metadataBase: new URL("https://ta-marit.vercel.app"),
+  title: {
+    template: "%s | TaMarit",
+    default: "TaMarit - Pembelajaran Bahasa, Sastra, & Budaya Aceh",
+  },
   description: "Platform digital premium untuk mempelajari bahasa, sastra, dan budaya Aceh dengan warisan maritim dan kearifan Serambi Mekkah.",
+  keywords: ["bahasa aceh", "belajar bahasa aceh", "kamus bahasa aceh", "sastra aceh", "budaya aceh", "TaMarit", "tes bahasa aceh", "hadih maja"],
+  openGraph: {
+    title: "TaMarit - Pembelajaran Bahasa, Sastra, & Budaya Aceh",
+    description: "Platform digital premium untuk mempelajari bahasa, sastra, dan budaya Aceh dengan warisan maritim dan kearifan Serambi Mekkah.",
+    url: "https://ta-marit.vercel.app",
+    siteName: "TaMarit",
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TaMarit - Pembelajaran Bahasa, Sastra, & Budaya Aceh",
+    description: "Platform digital premium untuk mempelajari bahasa, sastra, dan budaya Aceh dengan warisan maritim dan kearifan Serambi Mekkah.",
+  },
 };
 
 export default function RootLayout({
