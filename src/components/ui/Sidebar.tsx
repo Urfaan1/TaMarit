@@ -13,7 +13,8 @@ import {
   User,
   Menu,
   Library,
-  X
+  X,
+  MessageSquare
 } from "lucide-react";
 import { BookOpenText } from "lucide-react"; // Using this as the logo based on the image (a book icon)
 
@@ -26,13 +27,14 @@ export function Sidebar() {
 
   const navLinks = [
     { href: "/", label: "Beranda", icon: <Home className="w-5 h-5" /> },
-    { href: "/tes", label: "Uji Kemahiran", icon: <GraduationCap className="w-5 h-5" /> },
+    { href: "/tes", label: "Prediksi Kemahiran", icon: <GraduationCap className="w-5 h-5" /> },
     { href: "/latihan", label: "Latihan", icon: <Book className="w-5 h-5" /> },
     { href: "/sastra-budaya", label: "Sastra dan Budaya", icon: <BookOpen className="w-5 h-5" /> },
     { href: "/pustaka-digital", label: "Pustaka Digital", icon: <Library className="w-5 h-5" /> },
     { href: "/kamus", label: "Kamus", icon: <BookOpenText className="w-5 h-5" /> },
     { href: "/permainan", label: "Permainan", icon: <Gamepad2 className="w-5 h-5" /> },
     { href: "/tentang", label: "Tentang Kami", icon: <Info className="w-5 h-5" /> },
+    { href: "/saran", label: "Masukan & Saran", icon: <MessageSquare className="w-5 h-5" /> },
   ];
 
   return (

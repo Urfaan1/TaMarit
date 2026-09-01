@@ -6,7 +6,7 @@ import { HelpCircle, BookOpenText, BookOpen, Gamepad2 } from "lucide-react";
 
 export function FiturUtamaShared({ className = "" }: { className?: string }) {
   const features = [
-    { title: "Uji Kemahiran", desc: "Ukur level bahasa Aceh-mu.", icon: HelpCircle, href: "/tes" },
+    { title: "Prediksi Kemahiran", desc: "Ukur level bahasa Aceh-mu.", icon: HelpCircle, href: "/tes" },
     { title: "Latihan", desc: "Materi interaktif & terstruktur.", icon: BookOpenText, href: "/latihan" },
     { title: "Budaya", desc: "Eksplorasi adat & sastra.", icon: BookOpen, href: "/sastra-budaya" },
     { title: "Pustaka Digital", desc: "Koleksi buku cerita anak.", icon: BookOpen, href: "/pustaka-digital" },

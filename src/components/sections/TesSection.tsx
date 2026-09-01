@@ -43,7 +43,7 @@ export default function TesPage() {
           </div>
         </div>
         <h1 className="text-4xl md:text-5xl font-serif font-bold text-dark mb-4 tracking-tight">
-          Uji Kemahiran Berbahasa Aceh (UKBA)
+          Prediksi Kemahiran Berbahasa Aceh
         </h1>
         <p className="text-lg text-dark/60 max-w-2xl mx-auto leading-relaxed">
           Evaluasi kemampuan tata bahasa, kosakata, dan pemahaman kalimat bahasa Aceh secara menyeluruh untuk mengukur tingkat kemahiran Anda.
@@ -57,7 +57,7 @@ export default function TesPage() {
               
               <div className="flex flex-col items-center text-center">
                 <h3 className="font-serif text-3xl font-bold text-dark mb-6">
-                  Mulai Ujian Kemahiran
+                  Mulai Prediksi Kemahiran
                 </h3>
                 
                 <div className="flex flex-wrap justify-center gap-4 mb-8">

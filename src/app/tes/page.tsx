@@ -130,7 +130,7 @@ export default function TesPage() {
           </div>
         </div>
         <h1 className="text-4xl md:text-5xl font-serif font-bold text-dark mb-4 tracking-tight">
-          Uji Kemahiran Berbahasa Aceh (UKBA)
+          Prediksi Kemahiran Berbahasa Aceh
         </h1>
         <p className="text-lg text-dark/60 max-w-2xl mx-auto leading-relaxed">
           Evaluasi kemampuan tata bahasa, kosakata, dan pemahaman kalimat bahasa Aceh secara menyeluruh untuk mengukur tingkat kemahiran Anda.
@@ -145,7 +145,7 @@ export default function TesPage() {
               
               <div className="flex flex-col items-center text-center">
                 <h3 className="font-serif text-3xl font-bold text-dark mb-6">
-                  Mulai Ujian Kemahiran
+                  Mulai Prediksi Kemahiran
                 </h3>
                 
                 <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -204,7 +204,7 @@ export default function TesPage() {
                   Soal {currentIdx + 1} / {activeQuestions.length}
                 </Badge>
                 <div className="text-sm font-bold text-dark/50 bg-cream px-4 py-1.5 rounded-full border border-dark/5">
-                  UKBA - Sesi {currentSession}
+                  Sesi {currentSession}
                 </div>
               </div>
 
@@ -295,7 +295,7 @@ export default function TesPage() {
       <Modal
         isOpen={showResultModal}
         onClose={handleReset}
-        title="Hasil Evaluasi UKBA"
+        title="Hasil Evaluasi"
       >
         <div className="flex flex-col items-center text-center p-4">
           <div className="relative mb-6">
